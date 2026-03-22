@@ -3,8 +3,12 @@
 [![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org/)
 [![Baileys](https://img.shields.io/badge/Baileys-6.7.8-blue.svg)](https://github.com/WhiskeySockets/Baileys)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Windows](https://img.shields.io/badge/Windows-11-blue.svg)](WINDOWS_README.md)
+[![Linux](https://img.shields.io/badge/Linux-Compatible-green.svg)](README.md)
 
 A feature-rich WhatsApp bot built with Baileys, offering gaming, economy, group management, AI integration, and more. Supports 7 languages and includes 100+ commands.
+
+**🪟 Windows 11 Compatible!** - See [WINDOWS_README.md](WINDOWS_README.md) for Windows-specific instructions.
 
 ## ✨ Key Features
 
