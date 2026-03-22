@@ -117,6 +117,24 @@ export class WebSocketClient {
     this.listeners.get(event).push(callback);
   }
 
+  off(event, callback) {
+    if (!this.listeners.has(event)) {
+      return;
+    }
+    
+    const callbacks = this.listeners.get(event);
+    const index = callbacks.indexOf(callback);
+    
+    if (index > -1) {
+      callbacks.splice(index, 1);
+    }
+    
+    // Clean up empty listener arrays
+    if (callbacks.length === 0) {
+      this.listeners.delete(event);
+    }
+  }
+
   emit(event, data) {
     const callbacks = this.listeners.get(event);
     if (callbacks) {

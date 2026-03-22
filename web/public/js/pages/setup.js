@@ -10,6 +10,10 @@ export class SetupPage {
     this.totalSteps = 3;
     this.qrCode = null;
     this.botStatus = null;
+    this.statusInterval = null;
+    this.qrInterval = null;
+    this.botStatusHandler = null;
+    this.qrCodeHandler = null;
   }
 
   async render(container) {
@@ -290,10 +294,18 @@ export class SetupPage {
   }
 
   startStatusPolling() {
+    // Clear any existing intervals
+    if (this.statusInterval) clearInterval(this.statusInterval);
+    if (this.qrInterval) clearInterval(this.qrInterval);
+    
     // Poll bot status every 2 seconds
     this.statusInterval = setInterval(async () => {
       if (this.currentStep === 1) {
         await this.checkConnectionStatus();
+      } else {
+        // Stop polling if not on step 1
+        clearInterval(this.statusInterval);
+        this.statusInterval = null;
       }
     }, 2000);
 
@@ -301,6 +313,10 @@ export class SetupPage {
     this.qrInterval = setInterval(async () => {
       if (this.currentStep === 1 && !this.qrCode) {
         await this.loadQRCode();
+      } else if (this.currentStep !== 1) {
+        // Stop polling if not on step 1
+        clearInterval(this.qrInterval);
+        this.qrInterval = null;
       }
     }, 5000);
 
@@ -313,6 +329,12 @@ export class SetupPage {
   async checkConnectionStatus() {
     try {
       const response = await this.auth.fetchWithAuth('/api/bot/status');
+      
+      if (!response.ok) {
+        console.error('[SETUP] Failed to check connection status:', response.status);
+        return;
+      }
+      
       const status = await response.json();
       
       const statusEl = document.getElementById('connectionStatus');
@@ -327,8 +349,10 @@ export class SetupPage {
           
           // Auto-advance to step 2
           setTimeout(() => {
-            this.currentStep = 2;
-            this.updateStep();
+            if (this.currentStep === 1) {
+              this.currentStep = 2;
+              this.updateStep();
+            }
           }, 1000);
         } else if (status.status === 'connecting') {
           statusEl.innerHTML = `
@@ -340,11 +364,24 @@ export class SetupPage {
         }
       }
     } catch (error) {
-      console.error('Error checking connection status:', error);
+      console.error('[SETUP] Error checking connection status:', error);
+      // Don't show error to user, just log it - polling will retry
     }
   }
 
   updateStep() {
+    // Clear intervals when moving away from step 1
+    if (this.currentStep !== 1) {
+      if (this.statusInterval) {
+        clearInterval(this.statusInterval);
+        this.statusInterval = null;
+      }
+      if (this.qrInterval) {
+        clearInterval(this.qrInterval);
+        this.qrInterval = null;
+      }
+    }
+    
     // Update progress bar
     const progress = (this.currentStep / this.totalSteps) * 100;
     document.getElementById('progressFill').style.width = `${progress}%`;
@@ -372,8 +409,6 @@ export class SetupPage {
       this.loadBotInfo();
     } else if (this.currentStep === 3) {
       content.innerHTML = this.renderStep3();
-      clearInterval(this.statusInterval);
-      clearInterval(this.qrInterval);
     }
 
     lucide.createIcons();
@@ -402,12 +437,22 @@ export class SetupPage {
   async loadBotInfo() {
     try {
       const response = await this.auth.fetchWithAuth('/api/bot/status');
+      
+      if (!response.ok) {
+        console.error('[SETUP] Failed to load bot info:', response.status);
+        document.getElementById('phoneNumber').textContent = 'Error loading';
+        document.getElementById('deviceName').textContent = 'Error loading';
+        return;
+      }
+      
       const status = await response.json();
       
       document.getElementById('phoneNumber').textContent = status.phoneNumber || 'Unknown';
       document.getElementById('deviceName').textContent = status.deviceName || 'Unknown';
     } catch (error) {
-      console.error('Error loading bot info:', error);
+      console.error('[SETUP] Error loading bot info:', error);
+      document.getElementById('phoneNumber').textContent = 'Error loading';
+      document.getElementById('deviceName').textContent = 'Error loading';
     }
   }
 
@@ -430,19 +475,21 @@ export class SetupPage {
       }
     });
 
-    // WebSocket events
-    if (this.ws && this.ws.socket) {
-      this.ws.socket.on('bot:status', (status) => {
+    // WebSocket events - use the WebSocketClient's on() method to avoid duplicates
+    if (this.ws) {
+      // Create handler functions that we can remove later
+      this.botStatusHandler = (status) => {
         if (status.status === 'online' && this.currentStep === 1) {
           this.currentStep = 2;
           this.updateStep();
         }
-      });
+      };
 
-      this.ws.socket.on('qr:code', (data) => {
+      this.qrCodeHandler = (data) => {
         if (data.qr && this.currentStep === 1) {
           const qrContainer = document.getElementById('qrContainer');
           if (qrContainer) {
+            this.qrCode = data.qr;
             qrContainer.innerHTML = `
               <div class="qr-code">
                 <img src="${data.qr}" alt="QR Code" style="width: 300px; height: 300px; border-radius: 12px;" />
@@ -451,7 +498,11 @@ export class SetupPage {
             `;
           }
         }
-      });
+      };
+
+      // Add listeners
+      this.ws.on('bot:status', this.botStatusHandler);
+      this.ws.on('qr:code', this.qrCodeHandler);
     }
   }
 
@@ -464,7 +515,26 @@ export class SetupPage {
   }
 
   destroy() {
-    if (this.statusInterval) clearInterval(this.statusInterval);
-    if (this.qrInterval) clearInterval(this.qrInterval);
+    // Clear intervals
+    if (this.statusInterval) {
+      clearInterval(this.statusInterval);
+      this.statusInterval = null;
+    }
+    if (this.qrInterval) {
+      clearInterval(this.qrInterval);
+      this.qrInterval = null;
+    }
+    
+    // Remove WebSocket event listeners
+    if (this.ws) {
+      if (this.botStatusHandler) {
+        this.ws.off('bot:status', this.botStatusHandler);
+        this.botStatusHandler = null;
+      }
+      if (this.qrCodeHandler) {
+        this.ws.off('qr:code', this.qrCodeHandler);
+        this.qrCodeHandler = null;
+      }
+    }
   }
 }
