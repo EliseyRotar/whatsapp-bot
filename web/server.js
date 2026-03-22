@@ -222,11 +222,33 @@ app.get('/api/groups', authenticateToken, async (req, res) => {
     const groups = database.loadGroupSettings();
     const groupList = [];
     
-    console.log('[WEB] Loading groups, bot instance available:', !!botInstance);
-    console.log('[WEB] Bot sock available:', !!(botInstance && botInstance.sock));
+    const botAvailable = !!botInstance;
+    const sockAvailable = !!(botInstance && botInstance.sock);
+    
+    console.log('[WEB] Groups API called');
+    console.log('[WEB] Bot instance available:', botAvailable);
+    console.log('[WEB] Bot sock available:', sockAvailable);
     console.log('[WEB] Total groups in database:', Object.keys(groups).length);
     
-    // Fetch real group metadata from bot if available
+    // If bot is not available, return stored data with a warning
+    if (!botAvailable || !sockAvailable) {
+      console.log('[WEB] Bot not available, returning stored data only');
+      for (const [id, settings] of Object.entries(groups)) {
+        groupList.push({
+          id,
+          name: settings.name || 'Unknown Group',
+          memberCount: settings.memberCount || 0,
+          messageCount: settings.messageCount || 0,
+          settings
+        });
+      }
+      return res.json({ 
+        groups: groupList,
+        warning: 'Bot not connected - showing cached data'
+      });
+    }
+    
+    // Fetch real group metadata from bot
     for (const [id, settings] of Object.entries(groups)) {
       let groupData = {
         id,
@@ -237,7 +259,7 @@ app.get('/api/groups', authenticateToken, async (req, res) => {
       };
       
       // Try to fetch real metadata from bot
-      if (botInstance && botInstance.sock && id.endsWith('@g.us')) {
+      if (id.endsWith('@g.us')) {
         try {
           console.log(`[WEB] Fetching metadata for group: ${id}`);
           const metadata = await botInstance.sock.groupMetadata(id);
@@ -246,7 +268,7 @@ app.get('/api/groups', authenticateToken, async (req, res) => {
           groupData.description = metadata.desc || '';
           groupData.owner = metadata.owner || '';
           
-          console.log(`[WEB] Group metadata fetched: ${groupData.name} (${groupData.memberCount} members)`);
+          console.log(`[WEB] ✓ Group: ${groupData.name} (${groupData.memberCount} members)`);
           
           // Update the database with fresh data
           database.updateGroupSettings(id, {
@@ -256,10 +278,10 @@ app.get('/api/groups', authenticateToken, async (req, res) => {
           });
         } catch (error) {
           // If group metadata fetch fails, use stored data
-          console.log(`[WEB] Could not fetch metadata for group ${id}:`, error.message);
+          console.log(`[WEB] ✗ Failed to fetch metadata for ${id}:`, error.message);
         }
       } else {
-        console.log(`[WEB] Skipping metadata fetch for ${id} (bot not available or not a group)`);
+        console.log(`[WEB] Skipping ${id} (not a group chat)`);
       }
       
       groupList.push(groupData);
@@ -608,6 +630,19 @@ export function logMessage(message) {
   // Keep buffer size limited
   if (messageBuffer.length > MAX_BUFFER_SIZE) {
     messageBuffer.shift();
+  }
+
+  // Update group message count if it's a group message
+  if (message.from && message.from.endsWith('@g.us')) {
+    try {
+      const groups = database.loadGroupSettings();
+      if (groups[message.from]) {
+        groups[message.from].messageCount = (groups[message.from].messageCount || 0) + 1;
+        database.saveGroupSettings(groups);
+      }
+    } catch (error) {
+      console.error('[WEB] Error updating group message count:', error.message);
+    }
   }
 
   // Save periodically (handled by interval, but save immediately for important messages)
