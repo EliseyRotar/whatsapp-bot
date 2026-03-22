@@ -1,0 +1,57 @@
+{
+  "name": "whatsapp-bot",
+  "version": "1.0.0",
+  "description": "WhatsApp Bot with group management and spam features",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "web": "node web/server.js",
+    "dev": "node index.js & node web/server.js"
+  },
+  "dependencies": {
+    "@caed0/webp-conv": "^2.2.3",
+    "@distube/yt-dlp": "^2.0.1",
+    "@distube/ytdl-core": "^4.16.12",
+    "@hapi/boom": "^10.0.1",
+    "@huggingface/inference": "^4.13.12",
+    "@whiskeysockets/baileys": "^6.7.8",
+    "@ybd-project/ytdl-core": "^6.0.8",
+    "axios": "^1.13.6",
+    "better-sqlite3": "^12.6.2",
+    "bull": "^4.16.5",
+    "dotenv": "^17.3.1",
+    "express": "^4.18.2",
+    "ffmpeg-static": "^5.3.0",
+    "file-type": "^21.3.3",
+    "fluent-ffmpeg": "^2.1.3",
+    "ioredis": "^5.10.0",
+    "jimp": "^1.6.0",
+    "jsonwebtoken": "^9.0.2",
+    "node-cache": "^5.1.2",
+    "node-fetch": "^3.3.2",
+    "pino": "^8.19.0",
+    "play-dl": "^1.9.7",
+    "proper-lockfile": "^4.1.2",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0",
+    "socket.io": "^4.6.1",
+    "validator": "^13.15.26",
+    "webuntis": "^2.2.1",
+    "winston": "^3.19.0",
+    "winston-daily-rotate-file": "^5.0.0",
+    "youtube-dl-exec": "^3.1.4",
+    "youtube-search-api": "^2.0.1",
+    "yt-search": "^2.13.1",
+    "ytdl-core": "^4.11.5"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.5",
+    "@vitest/ui": "^4.0.18",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}

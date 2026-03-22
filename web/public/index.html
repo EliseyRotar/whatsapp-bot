@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="WhatsApp Bot Dashboard - Monitor and manage your WhatsApp bot">
+    <title>WhatsApp Bot Dashboard</title>
+    
+    <!-- Preconnect to improve performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Critical CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+    <!-- App Shell -->
+    <div id="app" class="app-shell">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Toggle menu">
+                    <i data-lucide="menu"></i>
+                </button>
+                <div class="logo">
+                    <i data-lucide="bot"></i>
+                    <span class="logo-text">WhatsApp Bot</span>
+                </div>
+            </div>
+            
+            <div class="header-center">
+                <div class="search-bar">
+                    <i data-lucide="search"></i>
+                    <input type="search" placeholder="Search messages, groups..." aria-label="Search">
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+                    <i data-lucide="sun"></i>
+                </button>
+                <button class="icon-btn" id="notificationBtn" aria-label="Notifications">
+                    <i data-lucide="bell"></i>
+                    <span class="badge" id="notificationBadge">0</span>
+                </button>
+                <div class="user-menu">
+                    <button class="user-avatar" id="userMenuBtn" aria-label="User menu">
+                        <i data-lucide="user"></i>
+                    </button>
+                    <div class="dropdown-menu" id="userDropdown">
+                        <a href="#" class="dropdown-item">
+                            <i data-lucide="settings"></i>
+                            Settings
+                        </a>
+                        <a href="#" class="dropdown-item" id="logoutBtn">
+                            <i data-lucide="log-out"></i>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <nav class="nav">
+                <div class="nav-group">
+                    <div class="nav-group-label">Main</div>
+                    <a href="#dashboard" class="nav-item active" data-route="dashboard">
+                        <i data-lucide="layout-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="#messages" class="nav-item" data-route="messages">
+                        <i data-lucide="message-square"></i>
+                        <span>Messages</span>
+                        <span class="nav-badge">12</span>
+                    </a>
+                    <a href="#groups" class="nav-item" data-route="groups">
+                        <i data-lucide="users"></i>
+                        <span>Groups</span>
+                    </a>
+                    <a href="#analytics" class="nav-item" data-route="analytics">
+                        <i data-lucide="bar-chart-3"></i>
+                        <span>Analytics</span>
+                    </a>
+                </div>
+                
+                <div class="nav-group">
+                    <div class="nav-group-label">Management</div>
+                    <a href="#commands" class="nav-item" data-route="commands">
+                        <i data-lucide="terminal"></i>
+                        <span>Commands</span>
+                    </a>
+                    <a href="#settings" class="nav-item" data-route="settings">
+                        <i data-lucide="settings"></i>
+                        <span>Settings</span>
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content" id="content">
+            <!-- Content will be dynamically loaded here -->
+        </main>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="#dashboard" class="mobile-nav-item active" data-route="dashboard">
+                <i data-lucide="layout-dashboard"></i>
+                <span>Home</span>
+            </a>
+            <a href="#messages" class="mobile-nav-item" data-route="messages">
+                <i data-lucide="message-square"></i>
+                <span>Messages</span>
+            </a>
+            <a href="#analytics" class="mobile-nav-item" data-route="analytics">
+                <i data-lucide="bar-chart-3"></i>
+                <span>Stats</span>
+            </a>
+            <a href="#settings" class="mobile-nav-item" data-route="settings">
+                <i data-lucide="settings"></i>
+                <span>More</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/app.js" type="module"></script>
+</body>
+</html>

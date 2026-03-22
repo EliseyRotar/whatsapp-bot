@@ -1,0 +1,16 @@
+[Unit]
+Description=WhatsApp Bot
+After=network.target
+
+[Service]
+Type=simple
+User=%USER%
+WorkingDirectory=%WORKDIR%
+ExecStart=/usr/bin/node index.js
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

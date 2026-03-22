@@ -1,0 +1,89 @@
+╔═══════════════════════════════════════════════════════════╗
+║              WHATSAPP BOT - QUICK REFERENCE               ║
+╚═══════════════════════════════════════════════════════════╝
+
+📱 GENERAL COMMANDS (Everyone)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+.help              Show all commands
+.ping              Check bot latency
+.alive             Check bot status
+.vv                View once-view photos (reply to message)
+.sticker           Convert to sticker (reply to image/video)
+.jid               Get WhatsApp IDs
+
+👮 ADMIN COMMANDS (Group Admins)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+.ban @user         Ban user from group
+.kick @user        Kick user from group
+.promote @user     Make user admin
+.demote @user      Remove admin rights
+.mute <min>        Mute group for X minutes
+.delete            Delete message (reply to it)
+.tagall <msg>      Tag all members
+.tagnotadmin <msg> Tag non-admins only
+.hidetag <msg>     Hidden tag all members
+.antilink on/off   Toggle link protection
+.welcome on/off    Toggle welcome messages
+.setgname <name>   Change group name
+.setgdesc <desc>   Change group description
+.resetlink         Reset invite link
+.groupinfo         Show group info
+.staff             List all admins
+
+👑 OWNER COMMANDS (Bot Owner Only: +393313444410)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+.mode public       Everyone can use bot
+.mode private      Only owner can use bot
+.spam 10 text      Send message 10 times
+.spam 10 500 text  Send with 500ms delay
+.broadcast <msg>   Send to all groups
+
+🎯 QUICK TIPS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+• All commands start with . (dot)
+• Reply to messages for: .vv .sticker .delete .ban .kick
+• Tag users with @number or reply to their message
+• Bot needs admin rights for most admin commands
+• Scan QR code only once - session persists
+• Keep auth_info/ folder safe
+
+📚 DOCUMENTATION
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+START_HERE.md      Quick start guide
+COMMANDS.md        Complete command list with examples
+GROUP_MANAGEMENT.md Group admin guide
+SPAM_GUIDE.md      Spam feature details
+SESSION_INFO.md    Session management
+NEW_FEATURES.md    Latest features
+
+⚡ COMMON TASKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Setup new group:
+  .antilink on
+  .welcome on
+  .tagall Welcome everyone!
+
+View once-view photo:
+  Reply to view-once message
+  Type: .vv
+
+Make sticker:
+  Reply to image
+  Type: .sticker
+
+Delete spam:
+  Reply to message
+  Type: .delete
+
+Announce to members:
+  .tagnotadmin Please read the rules
+
+Spam test:
+  .spam 5 Test message
+
+Broadcast:
+  .broadcast Important update!
+
+╔═══════════════════════════════════════════════════════════╗
+║  Bot Owner: +393313444410 | Prefix: . | Mode: Public     ║
+╚═══════════════════════════════════════════════════════════╝

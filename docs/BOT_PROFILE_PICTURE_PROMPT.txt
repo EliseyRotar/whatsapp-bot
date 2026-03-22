@@ -1,0 +1,104 @@
+═══════════════════════════════════════════════════════════════
+🎨 GEMINI AI IMAGE PROMPTS - ELI6'S BOT PROFILE PICTURE
+═══════════════════════════════════════════════════════════════
+
+🔥 RECOMMENDED PROMPT (PHOTOREALISTIC STYLE):
+────────────────────────────────────────────────────────────────
+
+A professional product photography shot of a sleek metallic robot head sculpture, studio lighting with dramatic purple and cyan rim lights, brushed aluminum surface with glowing LED eyes in electric blue, positioned on a dark reflective surface, subtle holographic projections of gaming icons (dice, coins) floating in the background, shot with shallow depth of field, bokeh effect, high-end commercial photography style, 8K resolution, octane render quality
+
+────────────────────────────────────────────────────────────────
+
+💎 ALTERNATIVE: ILLUSTRATED MASCOT (LESS AI-LOOKING):
+────────────────────────────────────────────────────────────────
+
+Hand-drawn digital illustration of a friendly robot character in the style of modern tech company mascots, simple geometric shapes, bold outlines, flat design with subtle gradients, wearing a small crown or headphones, holding a glowing smartphone, color palette of deep purple (#6B2FFF) and electric cyan (#00F0FF), clean vector art style, professional brand mascot design, white or dark navy background
+
+────────────────────────────────────────────────────────────────
+
+🎮 GAMING-FOCUSED VERSION:
+────────────────────────────────────────────────────────────────
+
+Isometric 3D illustration of a cute robot character sitting at a futuristic gaming setup, surrounded by floating holographic slot machine reels and gold coins, vaporwave aesthetic with purple and cyan color scheme, soft ambient lighting, rendered in Cinema 4D style, playful but professional, suitable for gaming app icon
+
+────────────────────────────────────────────────────────────────
+
+🌟 MINIMALIST LOGO STYLE (MOST PROFESSIONAL):
+────────────────────────────────────────────────────────────────
+
+Modern tech company logo design featuring a stylized robot face icon, geometric and symmetrical, gradient from purple to cyan, negative space creating the facial features, enclosed in a perfect circle, inspired by Stripe and Discord logo aesthetics, vector art, clean and scalable, professional brand identity
+
+────────────────────────────────────────────────────────────────
+
+🎨 ARTISTIC/UNIQUE APPROACH:
+────────────────────────────────────────────────────────────────
+
+Close-up portrait of a friendly android character with human-like features, wearing futuristic AR glasses with cyan holographic displays, soft studio lighting, painted in the style of Loish or Ross Tran, warm and inviting expression, purple and blue color accents in the lighting, digital painting with visible brush strokes, artstation quality
+
+────────────────────────────────────────────────────────────────
+
+⚡ PRO TIPS TO AVOID "AI-GENERATED" LOOK:
+────────────────────────────────────────────────────────────────
+
+1. Reference real art styles: "in the style of [artist name]" or "like [brand] logo"
+2. Use photography terms: "studio lighting", "bokeh", "shallow depth of field"
+3. Specify medium: "oil painting", "vector art", "product photography"
+4. Add imperfections: "subtle texture", "hand-drawn", "visible brush strokes"
+5. Avoid overused AI words: skip "ethereal", "majestic", "intricate details"
+6. Be specific about composition: "centered", "rule of thirds", "close-up portrait"
+7. Reference real cameras/renders: "shot on Canon 5D", "octane render", "Unreal Engine"
+
+────────────────────────────────────────────────────────────────
+
+🎯 GEMINI-SPECIFIC SETTINGS:
+────────────────────────────────────────────────────────────────
+
+- Aspect Ratio: 1:1 (Square) - REQUIRED for profile pics
+- Image Size: 1024x1024 minimum
+- Style Preset: Try "Photographic" or "Digital Art" 
+- Avoid: Fantasy, Anime (unless that's your vibe)
+- Seed: Save the seed if you like a result for variations
+
+────────────────────────────────────────────────────────────────
+
+✅ QUICK CHECKLIST:
+────────────────────────────────────────────────────────────────
+
+Before generating:
+□ Prompt mentions a specific art style or medium
+□ Colors match your brand (purple/cyan)
+□ Design will work at small sizes (test at 100x100px)
+□ Main subject is centered and clear
+□ No text in the image (hard to read when small)
+□ Background isn't too busy
+
+After generating:
+□ Crop to square if needed
+□ Test as WhatsApp profile pic (circular crop)
+□ Check visibility in dark mode
+□ Resize to 640x640px for WhatsApp (optimal size)
+
+────────────────────────────────────────────────────────────────
+
+🎨 YOUR BRAND COLORS:
+────────────────────────────────────────────────────────────────
+
+Primary: Electric Cyan (#00F0FF)
+Secondary: Deep Purple (#6B2FFF)
+Accent: Neon Pink (#FF2E97)
+Background: Dark Navy (#0A0E27)
+Gold: (#FFD700) for coins/premium elements
+
+────────────────────────────────────────────────────────────────
+
+💡 MY TOP PICK FOR YOU:
+
+Start with the "MINIMALIST LOGO STYLE" - it's clean, professional, 
+scales perfectly, and won't look AI-generated. Think Discord or 
+Stripe logo vibes. If you want something more playful, go with the 
+"ILLUSTRATED MASCOT" version.
+
+Avoid the super detailed 3D renders - they often look too "AI" and 
+don't scale well to profile pic sizes.
+
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,60 @@
+📰 NEWSLETTER SYSTEM - QUICK START
+=====================================
+
+🚀 START IN 3 COMMANDS:
+
+1. Enable System:
+   .nconfig enable
+
+2. Test Posting:
+   .newsletter 📰 Hello from my bot!
+
+3. Add Custom Message:
+   .nconfig addfinance 💰 Your tip here
+
+=====================================
+
+📋 MAIN COMMANDS:
+
+Manual Post:
+  .newsletter <message>
+  .postnews <message>
+
+Configure:
+  .nconfig                    (view settings)
+  .nconfig enable/disable     (toggle scheduler)
+  .nconfig addfinance <msg>   (add finance tip)
+  .nconfig addmotivation <msg> (add motivation)
+  .nconfig setchannel <msg>   (set promotion)
+
+=====================================
+
+📅 DEFAULT SCHEDULE:
+
+Finance:     Mon, Wed, Fri @ 9:00 AM
+Motivation:  Mon, Thu @ 8:00 AM
+Channels:    Sat, Sun @ 12:00 PM
+
+=====================================
+
+💡 EXAMPLES:
+
+.newsletter 💰 Finance Tip: Save 20% monthly
+.newsletter 🔥 Motivation: Success is daily!
+.newsletter 📢 Join our channels: [links]
+
+=====================================
+
+📰 YOUR NEWSLETTER:
+ID: 120363423949011615@newsletter
+
+=====================================
+
+📚 FULL DOCS:
+- NEWSLETTER_SETUP_COMPLETE.md
+- NEWSLETTER_GUIDE.md
+- NEWSLETTER_FINAL_SUMMARY.md
+
+=====================================
+
+✅ READY TO USE!

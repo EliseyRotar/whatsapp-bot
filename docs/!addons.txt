@@ -1,0 +1,19 @@
+☑️ add .bank for .slots
+html for monitoring
+☑️ add smth like .ad to advretise my bot
+☑️ enchance .slot (the icons should animate, use the editing feature to edit the same message to translate)
+☑️ add a promote message in the start of menu or info saying that if u need a bot, just text the owner (me) or add it directly
+fix the .guess
+☑️ add tic tac toe with bot and with an user
+☑️ for the .rps game add another option to play with a player not only with the bot
+☑️ for the .coin, please add like the option to insert ur choice, like .coin tails or .coin headsare 
+☑️ coin the .omegle error message, when i try to run .omegle in the group, add that u need to message the bot (me) and that the messages are encrypted so even i cant see them
+☑️ fix the .vv, it gives me this error: ❌ Questo non è un messaggio visualizza una volta. 
+☑️ add .warnings check @user
+☑️ add .lockdown
+☑️ create .stats that shows the server performance
+☑️ add blackjack
+☑️ add russian language
+☑️ add .updates thats gonna show the latest update/change of the bot
+☑️ for every game add the name of the person thats playing so there isnt any confusion
+☑️ upgrade the blackjack game
