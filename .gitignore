@@ -60,6 +60,7 @@ tmp/
 *.backup
 *.bak
 *~
+backups/
 
 # Database
 *.db-shm
