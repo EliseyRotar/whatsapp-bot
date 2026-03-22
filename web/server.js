@@ -5,6 +5,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import jwt from 'jsonwebtoken';
 import fs from 'fs';
+import QRCode from 'qrcode';
 import { config } from '../config.js';
 import * as database from '../utils/database/database.js';
 import * as analytics from '../utils/monitoring/analytics.js';
@@ -178,6 +179,17 @@ app.get('/api/bot/status', authenticateToken, (req, res) => {
   }
   
   res.json(botStatus);
+});
+
+// QR Code
+app.get('/api/bot/qr', authenticateToken, (req, res) => {
+  if (qrCode) {
+    res.json({ qr: qrCode, status: 'waiting' });
+  } else if (botStatus.status === 'online') {
+    res.json({ qr: null, status: 'connected' });
+  } else {
+    res.json({ qr: null, status: 'waiting' });
+  }
 });
 
 // Bot control
@@ -681,9 +693,16 @@ export function setBotInstance(instance) {
   botInstance = instance;
 }
 
-export function setQRCode(qr) {
-  qrCode = qr;
-  io.emit('qr:code', { qr });
+export async function setQRCode(qr) {
+  try {
+    // Convert QR string to data URL
+    const qrDataURL = await QRCode.toDataURL(qr);
+    qrCode = qrDataURL;
+    io.emit('qr:code', { qr: qrDataURL });
+  } catch (error) {
+    console.error('[WEB] Error generating QR code:', error);
+    qrCode = null;
+  }
 }
 
 // ===== Start Server =====

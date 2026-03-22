@@ -33,6 +33,29 @@ class App {
     // Setup router
     this.setupRouter();
 
+    // Check if setup is needed
+    const setupComplete = localStorage.getItem('setupComplete');
+    const hash = window.location.hash;
+    
+    if (!setupComplete && hash !== '#setup') {
+      // Check bot status to see if already connected
+      try {
+        const response = await this.auth.fetchWithAuth('/api/bot/status');
+        const status = await response.json();
+        
+        if (status.status !== 'online') {
+          // Bot not connected, show setup
+          this.router.navigate('#setup');
+          return;
+        } else {
+          // Bot already connected, mark setup as complete
+          localStorage.setItem('setupComplete', 'true');
+        }
+      } catch (error) {
+        console.error('Error checking bot status:', error);
+      }
+    }
+
     // Load initial route
     this.router.navigate(window.location.hash || '#dashboard');
   }
@@ -148,6 +171,11 @@ class App {
   }
 
   setupRouter() {
+    this.router.addRoute('setup', async () => {
+      const { SetupPage } = await import('./pages/setup.js');
+      return new SetupPage(this.ws);
+    });
+
     this.router.addRoute('dashboard', async () => {
       const { DashboardPage } = await import('./pages/dashboard.js');
       return new DashboardPage(this.ws);
