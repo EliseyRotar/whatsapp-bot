@@ -9,41 +9,140 @@ const responses = {
         
         content: `
 ┌─ 🌐 GENERAL
-│ .ping .alive .ai .menu .admin .info .latest .updates
-│ .stats .jid .checkowner .sticker .delete .vv .setlang
-│ .ad .adit .daily .invite .leaderboard .pay .guide
-│ .stopguide .image .games .adminhelp .baida .debugorario
-│ .orario .setorario .teacher .test .testforward .testuntis
-│ .trading .start .scam .shield .killstats .pay_v2
+│ .ping
+│ .alive
+│ .ai
+│ .menu
+│ .admin
+│ .info
+│ .latest
+│ .updates
+│ .stats
+│ .jid
+│ .checkowner
+│ .sticker
+│ .delete
+│ .vv
+│ .setlang
+│ .ad
+│ .adit
+│ .daily
+│ .invite
+│ .leaderboard
+│ .pay
+│ .guide
+│ .stopguide
+│ .image
+│ .games
+│ .adminhelp
+│ .baida
+│ .debugorario
+│ .orario
+│ .setorario
+│ .teacher
+│ .test
+│ .testforward
+│ .testuntis
+│ .trading
+│ .start
+│ .scam
+│ .shield
+│ .killstats
+│ .pay_v2
 
 ┌─ 💰 ECONOMY & SHOP
-│ .bank .daily .pay .invite .leaderboard
-│ .shop .buybulk
+│ .bank
+│ .daily
+│ .pay
+│ .invite
+│ .leaderboard
+│ .shop
+│ .buybulk
 
 ┌─ 🎮 GAMES
-│ .games .8ball .dice .coinflip .rps .guess .trivia
-│ .math .tictactoe .chess .slot .slotstats .roulette
-│ .mines .rob .fight .double .tournament .achievements
+│ .games
+│ .8ball
+│ .dice
+│ .coinflip
+│ .rps
+│ .guess
+│ .trivia
+│ .math
+│ .tictactoe
+│ .chess
+│ .slot
+│ .slotstats
+│ .roulette
+│ .mines
+│ .rob
+│ .fight
+│ .double
+│ .tournament
+│ .achievements
 
 ┌─ 🃏 BLACKJACK
-│ .blackjack .hit .stand .double .split .hand
-│ .surrender .insurance .bjstats .bjleaderboard
+│ .blackjack
+│ .hit
+│ .stand
+│ .double
+│ .split
+│ .hand
+│ .surrender
+│ .insurance
+│ .bjstats
+│ .bjleaderboard
 
 ┌─ 💀 ACTION
 │ .kill
 
 ┌─ 👮 ADMIN (Groups Only)
-│ .add .kick .ban .promote .demote .warn .warnings
-│ .mute .unmute .report .tagall .tagadmin .tagnotadmin
-│ .hidetag .lockdown .antilink .antidelete .welcome
-│ .setgname .setgdesc .resetlink .groupinfo .staff
-│ .newsletter .delall
+│ .add
+│ .kick
+│ .ban
+│ .promote
+│ .demote
+│ .warn
+│ .warnings
+│ .mute
+│ .unmute
+│ .report
+│ .tagall
+│ .tagadmin
+│ .tagnotadmin
+│ .hidetag
+│ .lockdown
+│ .antilink
+│ .antidelete
+│ .welcome
+│ .setgname
+│ .setgdesc
+│ .resetlink
+│ .groupinfo
+│ .staff
+│ .newsletter
+│ .delall
 
 ┌─ 👑 OWNER
-│ .mode .debug .audit .ownerhelp .checkbotjid .spam
-│ .broadcast .announce .raid .autovv .newsletterconfig
-│ .manage .addowner .removeowner .listowners .resetbalances
-│ .roball .addall .autocall .botoff
+│ .mode
+│ .debug
+│ .audit
+│ .ownerhelp
+│ .checkbotjid
+│ .spam
+│ .broadcast
+│ .announce
+│ .raid
+│ .autovv
+│ .newsletterconfig
+│ .manage
+│ .addowner
+│ .removeowner
+│ .listowners
+│ .resetbalances
+│ .roball
+│ .addall
+│ .autocall
+│ .botoff
 
 ┌─ 📥 DOWNLOADERS
 │ .ytmp3
@@ -68,41 +167,140 @@ const responses = {
         
         content: `
 ┌─ 🌐 GENERALI
-│ .ping .alive .ai .menu .admin .info .latest .updates
-│ .stats .jid .checkowner .sticker .delete .vv .setlang
-│ .ad .adit .daily .invite .leaderboard .pay .guide
-│ .stopguide .image .games .adminhelp .baida .debugorario
-│ .orario .setorario .teacher .test .testforward .testuntis
-│ .trading .start .scam .shield .killstats .pay_v2
+│ .ping
+│ .alive
+│ .ai
+│ .menu
+│ .admin
+│ .info
+│ .latest
+│ .updates
+│ .stats
+│ .jid
+│ .checkowner
+│ .sticker
+│ .delete
+│ .vv
+│ .setlang
+│ .ad
+│ .adit
+│ .daily
+│ .invite
+│ .leaderboard
+│ .pay
+│ .guide
+│ .stopguide
+│ .image
+│ .games
+│ .adminhelp
+│ .baida
+│ .debugorario
+│ .orario
+│ .setorario
+│ .teacher
+│ .test
+│ .testforward
+│ .testuntis
+│ .trading
+│ .start
+│ .scam
+│ .shield
+│ .killstats
+│ .pay_v2
 
 ┌─ 💰 ECONOMIA & NEGOZIO
-│ .bank .daily .pay .invite .leaderboard
-│ .shop .buybulk
+│ .bank
+│ .daily
+│ .pay
+│ .invite
+│ .leaderboard
+│ .shop
+│ .buybulk
 
 ┌─ 🎮 GIOCHI
-│ .games .8ball .dice .coinflip .rps .guess .trivia
-│ .math .tictactoe .chess .slot .slotstats .roulette
-│ .mines .rob .fight .double .tournament .achievements
+│ .games
+│ .8ball
+│ .dice
+│ .coinflip
+│ .rps
+│ .guess
+│ .trivia
+│ .math
+│ .tictactoe
+│ .chess
+│ .slot
+│ .slotstats
+│ .roulette
+│ .mines
+│ .rob
+│ .fight
+│ .double
+│ .tournament
+│ .achievements
 
 ┌─ 🃏 BLACKJACK
-│ .blackjack .hit .stand .double .split .hand
-│ .surrender .insurance .bjstats .bjleaderboard
+│ .blackjack
+│ .hit
+│ .stand
+│ .double
+│ .split
+│ .hand
+│ .surrender
+│ .insurance
+│ .bjstats
+│ .bjleaderboard
 
 ┌─ 💀 AZIONE
 │ .kill
 
 ┌─ 👮 ADMIN (Solo Gruppi)
-│ .add .kick .ban .promote .demote .warn .warnings
-│ .mute .unmute .report .tagall .tagadmin .tagnotadmin
-│ .hidetag .lockdown .antilink .antidelete .welcome
-│ .setgname .setgdesc .resetlink .groupinfo .staff
-│ .newsletter .delall
+│ .add
+│ .kick
+│ .ban
+│ .promote
+│ .demote
+│ .warn
+│ .warnings
+│ .mute
+│ .unmute
+│ .report
+│ .tagall
+│ .tagadmin
+│ .tagnotadmin
+│ .hidetag
+│ .lockdown
+│ .antilink
+│ .antidelete
+│ .welcome
+│ .setgname
+│ .setgdesc
+│ .resetlink
+│ .groupinfo
+│ .staff
+│ .newsletter
+│ .delall
 
 ┌─ 👑 PROPRIETARIO
-│ .mode .debug .audit .ownerhelp .checkbotjid .spam
-│ .broadcast .announce .raid .autovv .newsletterconfig
-│ .manage .addowner .removeowner .listowners .resetbalances
-│ .roball .addall .autocall .botoff
+│ .mode
+│ .debug
+│ .audit
+│ .ownerhelp
+│ .checkbotjid
+│ .spam
+│ .broadcast
+│ .announce
+│ .raid
+│ .autovv
+│ .newsletterconfig
+│ .manage
+│ .addowner
+│ .removeowner
+│ .listowners
+│ .resetbalances
+│ .roball
+│ .addall
+│ .autocall
+│ .botoff
 
 ┌─ 📥 DOWNLOAD
 │ .ytmp3
