@@ -101,6 +101,7 @@ const responses = {
 │ .warnings @user - Check warnings
 │ .mute <minutes> - Mute group
 │ .unmute - Unmute group
+│ .jail @user <minutes> - Jail user (mute)
 │ .report - Report message
 │ .tagall <msg> - Tag everyone
 │ .tagadmin <msg> - Tag admins
@@ -255,6 +256,7 @@ const responses = {
 │ .warnings @user - Controlla avvisi
 │ .mute <minuti> - Silenzia gruppo
 │ .unmute - Riattiva gruppo
+│ .jail @user <minuti> - Imprigiona utente
 │ .report - Segnala messaggio
 │ .tagall <msg> - Tagga tutti
 │ .tagadmin <msg> - Tagga admin
@@ -408,6 +410,7 @@ const responses = {
 │ .warnings @user - Проверить предупреждения
 │ .mute <минуты> - Заглушить группу
 │ .unmute - Включить группу
+│ .jail @user <минуты> - Заключить пользователя
 │ .report - Пожаловаться на сообщение
 │ .tagall <msg> - Отметить всех
 │ .tagadmin <msg> - Отметить админов
@@ -490,7 +493,7 @@ const responses = {
 ┌─ 👮 ADMIN
 │ .add - Agregar | .kick - Expulsar | .ban - Banear
 │ .promote - Promover | .demote - Degradar | .warn - Advertir
-│ .mute - Silenciar | .tagall - Etiquetar todos
+│ .mute - Silenciar | .jail @user <min> - Encarcelar | .tagall - Etiquetar todos
 
 ┌─ 👑 DUEÑO
 │ .mode - Modo | .broadcast - Difundir | .spam - Spam
@@ -529,7 +532,7 @@ const responses = {
 ┌─ 👮 ADMIN
 │ .add - Adicionar | .kick - Expulsar | .ban - Banir
 │ .promote - Promover | .demote - Rebaixar | .warn - Advertir
-│ .mute - Silenciar | .tagall - Marcar todos
+│ .mute - Silenciar | .jail @user <min> - Prender | .tagall - Marcar todos
 
 ┌─ 👑 DONO
 │ .mode - Modo | .broadcast - Difundir | .spam - Spam
@@ -568,7 +571,7 @@ const responses = {
 ┌─ 👮 المشرف
 │ .add - إضافة | .kick - طرد | .ban - حظر
 │ .promote - ترقية | .demote - تخفيض | .warn - تحذير
-│ .mute - كتم | .tagall - وسم الكل
+│ .mute - كتم | .jail @user <دقائق> - حبس | .tagall - وسم الكل
 
 ┌─ 👑 المالك
 │ .mode - الوضع | .broadcast - بث | .spam - سبام
@@ -607,7 +610,7 @@ const responses = {
 ┌─ 👮 एडमिन
 │ .add - जोड़ें | .kick - निकालें | .ban - प्रतिबंधित
 │ .promote - पदोन्नति | .demote - पदावनति | .warn - चेतावनी
-│ .mute - म्यूट | .tagall - सभी को टैग
+│ .mute - म्यूट | .jail @user <मिनट> - जेल | .tagall - सभी को टैग
 
 ┌─ 👑 मालिक
 │ .mode - मोड | .broadcast - प्रसारण | .spam - स्पैम
