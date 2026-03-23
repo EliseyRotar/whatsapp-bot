@@ -309,6 +309,315 @@ const responses = {
 • Le armi sono monouso da .shop
 
 📱 Proprietario Bot: ${config.ownerName} (+${config.ownerNumber})`
+    },
+    
+    ru: {
+        promo: '🤖 НУЖЕН БОТ ДЛЯ ВАШЕЙ ГРУППЫ?\n\n💬 Напишите владельцу:\nwa.me/393313444410\n\n━━━━━━━━━━━━━━━━━━━━━━━━━\n',
+        title: `╔═══════════════════════════╗\n║   🤖 ${config.botName} - Меню   ║\n╚═══════════════════════════╝`,
+        content: `
+┌─ 🌐 ОБЩИЕ
+│ .ping - Проверить задержку
+│ .alive - Статус бота
+│ .ai <текст> - Спросить AI
+│ .menu - Показать меню
+│ .admin - Список команд админа
+│ .info - Информация о боте
+│ .latest - Последнее обновление
+│ .updates - Все обновления
+│ .stats - Статистика сервера
+│ .jid - Получить JID
+│ .checkowner - Статус владельца
+│ .sticker - Создать стикер (ответ)
+│ .delete - Удалить сообщение (ответ)
+│ .vv - Показать view-once (ответ)
+│ .setlang <код> - Изменить язык
+│ .ad - Реклама бота
+│ .adit - Реклама (итальянский)
+│ .guide - Руководство
+│ .stopguide - Остановить руководство
+│ .image <текст> - Генерация AI изображения
+│ .games - Список игр
+│ .adminhelp - Помощь админа
+│ .baida - Команда baida
+│ .debugorario - Отладка расписания
+│ .orario - Проверить расписание
+│ .setorario - Установить расписание
+│ .teacher - Информация учителя
+│ .test - Тестовая команда
+│ .testforward - Тест пересылки
+│ .testuntis - Тест Untis
+│ .trading - Информация о торговле
+│ .start - Запустить бота
+│ .scam - Информация о мошенничестве
+│ .shield - Информация о щите
+│ .killstats - Статистика убийств
+│ .pay_v2 - Оплата v2
+
+┌─ 💰 ЭКОНОМИКА И МАГАЗИН
+│ .bank - Проверить баланс
+│ .daily - Ежедневные монеты (200-50K)
+│ .pay @user <сумма> - Отправить монеты
+│ .invite - Реферальная система
+│ .leaderboard - Лучшие игроки
+│ .shop - Виртуальный магазин
+│ .buybulk <предмет> <кол-во> - Массовая покупка
+
+┌─ 🎮 ИГРЫ
+│ .games - Список игр
+│ .8ball <вопрос> - Магический шар 8
+│ .dice [ставка] - Бросить кости
+│ .coinflip <о/р> [ставка] - Подбросить монету
+│ .rps <выбор> - Камень Ножницы Бумага
+│ .guess - Угадай число (1-100)
+│ .trivia - Вопрос викторины
+│ .math - Математический вызов
+│ .tictactoe [@user] - Крестики-нолики
+│ .chess [@user] - Играть в шахматы
+│ .slot [ставка/all] - Игровой автомат
+│ .slotstats - Статистика слотов
+│ .roulette <ставка> <тип> - Рулетка
+│ .mines <ставка> - Сапёр
+│ .rob @user - Ограбить игрока
+│ .fight - Защититься от ограбления
+│ .double - Удвоить или ничего
+│ .tournament - Присоединиться к турниру
+│ .achievements - Достижения
+
+┌─ 🃏 БЛЭКДЖЕК
+│ .blackjack <ставка> - Начать игру
+│ .hit - Взять карту
+│ .stand - Закончить ход
+│ .double - Удвоить ставку
+│ .split - Разделить пары
+│ .hand <n> - Переключить руку
+│ .surrender - Сдаться
+│ .insurance - Купить страховку
+│ .bjstats - Ваша статистика
+│ .bjleaderboard - Лучшие игроки
+
+┌─ 💀 ДЕЙСТВИЕ
+│ .kill @user <оружие> - Убить (стиль GTA)
+
+┌─ 👮 АДМИН (Только группы)
+│ .add <номер> - Добавить участника
+│ .kick @user - Удалить пользователя
+│ .ban @user - Забанить пользователя
+│ .promote @user - Сделать админом
+│ .demote @user - Снять админа
+│ .warn @user <причина> - Предупредить
+│ .warnings @user - Проверить предупреждения
+│ .mute <минуты> - Заглушить группу
+│ .unmute - Включить группу
+│ .report - Пожаловаться на сообщение
+│ .tagall <msg> - Отметить всех
+│ .tagadmin <msg> - Отметить админов
+│ .tagnotadmin <msg> - Отметить не-админов
+│ .hidetag <msg> - Скрытая отметка
+│ .lockdown <on/off> - Заблокировать группу
+│ .antilink <on/off> - Защита от ссылок
+│ .antidelete <on/off> - Анти-удаление
+│ .welcome <on/off> - Приветственные сообщения
+│ .setgname <имя> - Изменить название группы
+│ .setgdesc <описание> - Изменить описание
+│ .resetlink - Сбросить ссылку-приглашение
+│ .groupinfo - Детали группы
+│ .staff - Список админов
+│ .newsletter - Управление рассылкой
+│ .delall - Удалить все сообщения
+
+┌─ 👑 ВЛАДЕЛЕЦ
+│ .mode <public/private> - Режим бота
+│ .debug - Отладочная информация (ответ)
+│ .audit - Журнал аудита
+│ .ownerhelp - Помощь владельца
+│ .checkbotjid - Проверить JID бота
+│ .spam <count> <text> - Спам сообщений
+│ .broadcast <msg> - Отправить всем
+│ .announce <msg> - Объявление
+│ .raid confirm - Рейд группы
+│ .autovv <on/off> - Авто-сохранение view-once
+│ .newsletterconfig - Конфигурация рассылки
+│ .manage @user <действие> - Управление пользователем
+│ .addowner @user - Добавить владельца
+│ .removeowner @user - Удалить владельца
+│ .listowners - Список владельцев
+│ .resetbalances - Сбросить все балансы
+│ .roball - Ограбить всех
+│ .addall - Массовое добавление
+│ .autocall - Авто-звонок
+│ .botoff - Выключить бота
+
+┌─ 📥 ЗАГРУЗКИ
+│ .ytmp3 <url> - Скачать аудио YouTube
+
+╔═══════════════════════════╗
+║  Префикс: ${config.prefix}  |  Владелец: ${config.ownerName}  ║
+╚═══════════════════════════╝
+
+💡 Советы:
+• Ответьте на сообщения: .vv .sticker .delete .debug
+• Команды админа требуют прав админа
+• Бот должен быть админом: kick, ban, promote, demote, mute
+• Используйте "all" для ставки всего: .slot all .dice all
+• Оружие одноразовое из .shop
+
+📱 Владелец Бота: ${config.ownerName} (+${config.ownerNumber})`
+    },
+    
+    es: {
+        promo: '🤖 ¿NECESITAS UN BOT?\n\n💬 Escribe:\nwa.me/393313444410\n\n━━━━━━━━━━━━━━━━━━━━━━━━━\n',
+        title: `╔═══════════════════════════╗\n║   🤖 ${config.botName} - Menú   ║\n╚═══════════════════════════╝`,
+        content: `
+┌─ 🌐 GENERAL
+│ .ping - Latencia | .alive - Estado | .ai - Preguntar AI
+│ .menu - Menú | .admin - Comandos admin | .info - Info
+│ .latest - Última actualización | .updates - Actualizaciones
+│ .stats - Estadísticas | .jid - Obtener JID
+│ .sticker - Crear sticker | .delete - Eliminar | .vv - Ver view-once
+│ .setlang - Cambiar idioma | .guide - Guía | .games - Lista juegos
+
+┌─ 💰 ECONOMÍA
+│ .bank - Balance | .daily - Monedas diarias (200-50K)
+│ .pay - Enviar monedas | .invite - Referidos
+│ .leaderboard - Clasificación | .shop - Tienda
+
+┌─ 🎮 JUEGOS
+│ .games - Lista | .8ball - Bola 8 | .dice - Dados
+│ .coinflip - Moneda | .rps - Piedra Papel Tijera
+│ .slot - Tragamonedas | .roulette - Ruleta | .rob - Robar
+│ .blackjack - Blackjack | .chess - Ajedrez
+
+┌─ 👮 ADMIN
+│ .add - Agregar | .kick - Expulsar | .ban - Banear
+│ .promote - Promover | .demote - Degradar | .warn - Advertir
+│ .mute - Silenciar | .tagall - Etiquetar todos
+
+┌─ 👑 DUEÑO
+│ .mode - Modo | .broadcast - Difundir | .spam - Spam
+│ .addowner - Agregar dueño | .resetbalances - Resetear
+
+╔═══════════════════════════╗
+║  Prefijo: ${config.prefix}  |  Dueño: ${config.ownerName}  ║
+╚═══════════════════════════╝
+
+📱 Dueño: ${config.ownerName} (+${config.ownerNumber})`
+    },
+    
+    pt: {
+        promo: '🤖 PRECISA DE UM BOT?\n\n💬 Fale:\nwa.me/393313444410\n\n━━━━━━━━━━━━━━━━━━━━━━━━━\n',
+        title: `╔═══════════════════════════╗\n║   🤖 ${config.botName} - Menu   ║\n╚═══════════════════════════╝`,
+        content: `
+┌─ 🌐 GERAL
+│ .ping - Latência | .alive - Status | .ai - Perguntar AI
+│ .menu - Menu | .admin - Comandos admin | .info - Info
+│ .latest - Última atualização | .updates - Atualizações
+│ .stats - Estatísticas | .jid - Obter JID
+│ .sticker - Criar sticker | .delete - Deletar | .vv - Ver view-once
+│ .setlang - Mudar idioma | .guide - Guia | .games - Lista jogos
+
+┌─ 💰 ECONOMIA
+│ .bank - Saldo | .daily - Moedas diárias (200-50K)
+│ .pay - Enviar moedas | .invite - Indicações
+│ .leaderboard - Classificação | .shop - Loja
+
+┌─ 🎮 JOGOS
+│ .games - Lista | .8ball - Bola 8 | .dice - Dados
+│ .coinflip - Moeda | .rps - Pedra Papel Tesoura
+│ .slot - Caça-níqueis | .roulette - Roleta | .rob - Roubar
+│ .blackjack - Blackjack | .chess - Xadrez
+
+┌─ 👮 ADMIN
+│ .add - Adicionar | .kick - Expulsar | .ban - Banir
+│ .promote - Promover | .demote - Rebaixar | .warn - Advertir
+│ .mute - Silenciar | .tagall - Marcar todos
+
+┌─ 👑 DONO
+│ .mode - Modo | .broadcast - Difundir | .spam - Spam
+│ .addowner - Adicionar dono | .resetbalances - Resetar
+
+╔═══════════════════════════╗
+║  Prefixo: ${config.prefix}  |  Dono: ${config.ownerName}  ║
+╚═══════════════════════════╝
+
+📱 Dono: ${config.ownerName} (+${config.ownerNumber})`
+    },
+    
+    ar: {
+        promo: '🤖 تحتاج بوت؟\n\n💬 راسل:\nwa.me/393313444410\n\n━━━━━━━━━━━━━━━━━━━━━━━━━\n',
+        title: `╔═══════════════════════════╗\n║   🤖 ${config.botName} - القائمة   ║\n╚═══════════════════════════╝`,
+        content: `
+┌─ 🌐 عام
+│ .ping - التأخير | .alive - الحالة | .ai - اسأل AI
+│ .menu - القائمة | .admin - أوامر المشرف | .info - معلومات
+│ .latest - آخر تحديث | .updates - التحديثات
+│ .stats - الإحصائيات | .jid - الحصول على JID
+│ .sticker - إنشاء ملصق | .delete - حذف | .vv - عرض view-once
+│ .setlang - تغيير اللغة | .guide - الدليل | .games - قائمة الألعاب
+
+┌─ 💰 الاقتصاد
+│ .bank - الرصيد | .daily - عملات يومية (200-50K)
+│ .pay - إرسال عملات | .invite - الإحالات
+│ .leaderboard - المتصدرين | .shop - المتجر
+
+┌─ 🎮 الألعاب
+│ .games - القائمة | .8ball - كرة 8 | .dice - نرد
+│ .coinflip - عملة | .rps - حجر ورقة مقص
+│ .slot - سلوت | .roulette - روليت | .rob - سرقة
+│ .blackjack - بلاك جاك | .chess - شطرنج
+
+┌─ 👮 المشرف
+│ .add - إضافة | .kick - طرد | .ban - حظر
+│ .promote - ترقية | .demote - تخفيض | .warn - تحذير
+│ .mute - كتم | .tagall - وسم الكل
+
+┌─ 👑 المالك
+│ .mode - الوضع | .broadcast - بث | .spam - سبام
+│ .addowner - إضافة مالك | .resetbalances - إعادة تعيين
+
+╔═══════════════════════════╗
+║  البادئة: ${config.prefix}  |  المالك: ${config.ownerName}  ║
+╚═══════════════════════════╝
+
+📱 المالك: ${config.ownerName} (+${config.ownerNumber})`
+    },
+    
+    hi: {
+        promo: '🤖 बॉट चाहिए?\n\n💬 संपर्क करें:\nwa.me/393313444410\n\n━━━━━━━━━━━━━━━━━━━━━━━━━\n',
+        title: `╔═══════════════════════════╗\n║   🤖 ${config.botName} - मेनू   ║\n╚═══════════════════════════╝`,
+        content: `
+┌─ 🌐 सामान्य
+│ .ping - विलंबता | .alive - स्थिति | .ai - AI से पूछें
+│ .menu - मेनू | .admin - एडमिन कमांड | .info - जानकारी
+│ .latest - नवीनतम अपडेट | .updates - अपडेट
+│ .stats - आंकड़े | .jid - JID प्राप्त करें
+│ .sticker - स्टिकर बनाएं | .delete - हटाएं | .vv - view-once देखें
+│ .setlang - भाषा बदलें | .guide - गाइड | .games - गेम सूची
+
+┌─ 💰 अर्थव्यवस्था
+│ .bank - बैलेंस | .daily - दैनिक सिक्के (200-50K)
+│ .pay - सिक्के भेजें | .invite - रेफरल
+│ .leaderboard - शीर्ष खिलाड़ी | .shop - दुकान
+
+┌─ 🎮 गेम्स
+│ .games - सूची | .8ball - जादुई गेंद | .dice - पासा
+│ .coinflip - सिक्का | .rps - पत्थर कागज कैंची
+│ .slot - स्लॉट मशीन | .roulette - रूलेट | .rob - लूटना
+│ .blackjack - ब्लैकजैक | .chess - शतरंज
+
+┌─ 👮 एडमिन
+│ .add - जोड़ें | .kick - निकालें | .ban - प्रतिबंधित
+│ .promote - पदोन्नति | .demote - पदावनति | .warn - चेतावनी
+│ .mute - म्यूट | .tagall - सभी को टैग
+
+┌─ 👑 मालिक
+│ .mode - मोड | .broadcast - प्रसारण | .spam - स्पैम
+│ .addowner - मालिक जोड़ें | .resetbalances - रीसेट
+
+╔═══════════════════════════╗
+║  उपसर्ग: ${config.prefix}  |  मालिक: ${config.ownerName}  ║
+╚═══════════════════════════╝
+
+📱 मालिक: ${config.ownerName} (+${config.ownerNumber})`
     }
 };
 
