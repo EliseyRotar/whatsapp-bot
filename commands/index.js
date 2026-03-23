@@ -118,6 +118,8 @@ import checkbotjid from './owner/checkbotjid.js';
 import addall from './owner/addall.js';
 import roball from './owner/roball.js';
 import ownerhelp from './owner/ownerhelp.js';
+import announce from './owner/announce.js';
+import resetbalances from './owner/resetbalances.js';
 
 export const commands = {
     // General
@@ -313,4 +315,9 @@ export const commands = {
     ownerhelp,
     ownercommands: ownerhelp, // Alias
     ownercmd: ownerhelp, // Alias
+    announce,
+    annuncio: announce, // Alias
+    resetbalances,
+    resetbal: resetbalances, // Alias
+    economyreset: resetbalances, // Alias
 };

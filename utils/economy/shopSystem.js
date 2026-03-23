@@ -60,7 +60,7 @@ export function getCoinMultiplier(userId) {
         multiplier = 3;
     }
     if (inventory.mega_multiplier && isItemActive(inventory.mega_multiplier)) {
-        multiplier = 5;
+        multiplier = 3; // Reduced from 5x to 3x for balance
     }
     
     return multiplier;
@@ -81,7 +81,7 @@ export function getLuckBoost(userId) {
         boost += 50;
     }
     
-    return Math.min(boost, 75); // Max 75% luck boost
+    return Math.min(boost, 50); // Max 50% luck boost (reduced from 75%)
 }
 
 // Check if user has protection

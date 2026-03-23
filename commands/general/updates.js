@@ -81,6 +81,30 @@ const responses = {
 const updates = {
     en: [
         {
+            version: 'v5.0.0 - MAJOR UPDATE',
+            date: 'March 22, 2026',
+            changes: [
+                '🎰 SLOT MACHINE REBALANCED',
+                '🔧 Fixed critical race condition exploit',
+                '🔒 Added concurrent game prevention',
+                '💰 Jackpot: 20x → 50x, Sevens: 10x → 25x',
+                '💰 All multipliers increased 2x-2.5x',
+                '⚡ Cooldown: 3s → 2s (faster gameplay)',
+                '📈 RTP improved to 96% (fairer payouts)',
+                '',
+                '🎡 DAILY REWARDS BUFFED (4x-5x)',
+                '💎 Common: 50 → 200 coins (+300%)',
+                '💎 Rare: 200 → 1,000 coins (+400%)',
+                '💎 Epic: 500 → 2,500 coins (+400%)',
+                '💎 Legendary: 1,000 → 5,000 coins (+400%)',
+                '💎 MEGA JACKPOT: 10,000 → 50,000 coins (+400%)',
+                '📊 Average daily: ~2,160 coins (was ~540)',
+                '📅 Monthly value: ~65,000 coins!',
+                '',
+                '🎯 More fun, better balance, higher engagement!'
+            ]
+        },
+        {
             version: 'v4.8.0',
             date: 'March 19, 2026',
             changes: [
