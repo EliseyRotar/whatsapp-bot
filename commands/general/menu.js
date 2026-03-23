@@ -7,160 +7,136 @@ const responses = {
         promo: '🤖 NEED A BOT FOR YOUR GROUP?\n\n💬 Text the owner or add directly:\nwa.me/393313444410\n\n━━━━━━━━━━━━━━━━━━━━━━━━━\n',
         title: `╔═══════════════════════════╗\n║   🤖 ${config.botName} - Menu   ║\n╚═══════════════════════════╝`,
         
-        generalSection: '\n┌─ 🌐 GENERAL COMMANDS\n│',
-        general: [
-            '.ping - Check bot latency',
-            '.alive - Bot status & uptime',
-            '.ai <question> - Ask AI anything',
-            '.menu - Show this menu',
-            '.admin - List all admin commands',
-            '.info - Bot information',
-            '.latest - Latest bot update',
-            '.updates - All bot updates & changelog',
-            '.stats - Server & bot statistics',
-            '.jid - Get your WhatsApp JID',
-            '.checkowner - Check owner status',
-            '.sticker - Make sticker (reply to image)',
-            '.delete - Delete message (reply)',
-            '.vv - Reveal view-once (reply)',
-            '.setlang <code> - Change language (en/it/ru/es/pt/ar)',
-            '.ad - Bot advertisement',
-            '.adit - Bot advertisement (Italian)'
-        ],
+        content: `
+┌─ 🌐 GENERAL (43)
+│ .ping .alive .ai .menu .admin .info .latest .updates .stats .jid .checkowner .sticker .delete .vv .setlang .ad .adit .daily .invite .leaderboard .pay .guide .stopguide .image .games .adminhelp .baida .debugorario .orario .setorario .teacher .test .testforward .testuntis .trading .start .scam .shield .killstats .autocall .botoff
+
+┌─ 💰 ECONOMY & SHOP (9)
+│ .bank - Check balance | .daily - Claim daily coins (200-50K)
+│ .pay @user <amt> - Send coins | .invite - Referral (500/3 friends)
+│ .leaderboard - Top players | .shop - Virtual shop
+│ .shop buy <item> - Purchase | .shop inventory - View items
+│ .buybulk <item> <qty> - Bulk purchase
+
+┌─ 🎮 GAMES (28)
+│ .games - List all | .8ball - Magic 8-ball | .dice [bet] - Roll
+│ .coinflip <h/t> [bet] - Flip | .rps <choice> - Rock Paper Scissors
+│ .guess - Number game | .trivia - Quiz | .math - Math challenge
+│ .tictactoe [@user] - Tic-tac-toe | .chess [@user] - Chess
+│ .slot [bet/all] - Slots (96% RTP) | .slotstats - Slot statistics
+│ .roulette <bet> <type> - Roulette | .mines <bet> - Minesweeper
+│ .rob @user - Rob player | .fight - Defend | .double - Double or nothing
+│ .tournament - Join tournament | .achievements - View achievements
+
+┌─ 🃏 BLACKJACK (10)
+│ .blackjack <bet> - Start | .hit - Draw card | .stand - End turn
+│ .double - Double bet | .split - Split pairs | .hand <n> - Switch hand
+│ .surrender - Give up | .insurance - Buy insurance
+│ .bjstats - Your stats | .bjleaderboard - Top players
+
+┌─ 💀 ACTION (1)
+│ .kill @user <weapon> - Kill player (GTA style)
+│   Weapons: knife, pistol, rifle, sniper, rpg (buy from .shop)
+
+┌─ 👮 ADMIN (24) - Groups Only
+│ Members: .add .kick .ban .promote .demote
+│ Moderation: .warn .warnings .mute .unmute .report
+│ Tags: .tagall .tagadmin .tagnotadmin .hidetag
+│ Settings: .lockdown .antilink .antidelete .welcome
+│ Group: .setgname .setgdesc .resetlink .groupinfo .staff
+│ Other: .newsletter .delall
+
+┌─ 👑 OWNER (20)
+│ Control: .mode .debug .audit .ownerhelp .checkbotjid
+│ Broadcast: .spam .broadcast .announce .raid
+│ Features: .autovv .newsletterconfig .manage
+│ Owners: .addowner .removeowner .listowners
+│ Economy: .resetbalances .roball
+│ Other: .addall .autocall .botoff
+
+┌─ 📥 DOWNLOADERS (1)
+│ .ytmp3 <url> - Download YouTube audio
+
+╔═══════════════════════════╗
+║  Prefix: ${config.prefix}  |  Owner: ${config.ownerName}  ║
+╚═══════════════════════════╝
+
+💡 Tips:
+• Reply to messages: .vv .sticker .delete .debug
+• Admin cmds need group admin perms
+• Bot must be admin: kick, ban, promote, demote, mute
+• Use "all" to bet everything: .slot all .dice all
+• Weapons are single-use from .shop
+
+📱 Bot Owner: ${config.ownerName} (+${config.ownerNumber})`
+    },
+    
+    it: {
+        promo: '🤖 HAI BISOGNO DI UN BOT PER IL TUO GRUPPO?\n\n💬 Scrivi al proprietario o aggiungi direttamente:\nwa.me/393313444410\n\n━━━━━━━━━━━━━━━━━━━━━━━━━\n',
+        title: `╔═══════════════════════════╗\n║   🤖 ${config.botName} - Menu   ║\n╚═══════════════════════════╝`,
         
-        economySection: '\n┌─ 💰 ECONOMY & SHOP\n│',
-        economy: [
-            '.bank - Check your coin balance',
-            '.daily - Claim daily coins (100-300)',
-            '.pay @user <amount> - Send coins to someone',
-            '.invite - Referral system (500 coins per 3 friends)',
-            '.leaderboard - Top players rankings',
-            '.shop - Virtual shop (badges, boosts, weapons)',
-            '.shop buy <item> - Purchase shop items',
-            '.shop inventory - View your items'
-        ],
-        
-        gamesSection: '\n┌─ 🎮 GAMES & GAMBLING\n│',
-        games: [
-            '.games - List all available games',
-            '.8ball <question> - Magic 8-ball',
-            '.dice [bet] - Roll dice',
-            '.coinflip <heads/tails> [bet] - Flip coin',
-            '.rps <choice> - Rock Paper Scissors',
-            '.guess - Number guessing (1-100)',
-            '.trivia - Random trivia question',
-            '.math - Math challenge',
-            '.ttt [@user] - Tic-tac-toe',
-            '.chess [@user] - Play chess',
-            '.slot [bet/all] - Slot machine',
-            '.roulette <bet> <type> - Casino roulette',
-            '.rob @user - Rob another player',
-            '.fight - Defend against robbery'
-        ],
-        
-        blackjackSection: '\n┌─ 🃏 BLACKJACK COMMANDS\n│',
-        blackjack: [
-            '.bj <bet> - Start blackjack game',
-            '.hit - Draw a card',
-            '.stand - End your turn',
-            '.double - Double bet & draw one card',
-            '.split - Split pairs into two hands',
-            '.hand <number> - Switch between hands',
-            '.surrender - Surrender (get half bet back)',
-            '.insurance - Buy insurance against dealer blackjack',
-            '.bjstats - Your blackjack statistics',
-            '.bjtop - Blackjack leaderboard'
-        ],
-        
-        actionSection: '\n┌─ 💀 ACTION COMMANDS\n│',
-        action: [
-            '.kill @user <weapon> - Kill another player (GTA style)',
-            '  Weapons: knife, pistol, rifle, sniper, rpg',
-            '  Buy weapons from .shop'
-        ],
-        
-        adminSection: '\n┌─ 👮 ADMIN COMMANDS (Groups Only)\n│',
-        adminMember: [
-            '├ 👤 Member Management:',
-            '.add <number> - Add member to group',
-            '.kick @user - Remove user',
-            '.ban @user - Ban user',
-            '.promote @user - Make admin',
-            '.demote @user - Remove admin'
-        ],
-        adminModeration: [
-            '├ ⚖️ Moderation:',
-            '.warn @user <reason> - Warn user',
-            '.warn all <reason> - Warn everyone',
-            '.warnings @user - Check warnings',
-            '.warnings clear @user - Clear warnings',
-            '.warnings clear all - Clear all warnings',
-            '.mute <minutes> - Mute group',
-            '.report - Report message to WhatsApp'
-        ],
-        adminMessaging: [
-            '├ 💬 Messaging & Tags:',
-            '.tagall <msg> - Tag everyone',
-            '.tagadmin <msg> - Tag admins only',
-            '.tagnotadmin <msg> - Tag non-admins',
-            '.hidetag <msg> - Hidden tag all'
-        ],
-        adminSettings: [
-            '├ ⚙️ Group Settings:',
-            '.lockdown <on/off> - Lock group',
-            '.antilink <on/off> - Link protection',
-            '.antidelete <on/off> - Anti-delete messages',
-            '.welcome <on/off> - Welcome messages',
-            '.setgname <name> - Change group name',
-            '.setgdesc <desc> - Change description',
-            '.resetlink - Reset invite link',
-            '.newsletter - Manage newsletter',
-            '.delall - Delete all messages (DANGEROUS!)'
-        ],
-        adminInfo: [
-            '└ 📊 Information:',
-            '.groupinfo - Group details',
-            '.staff - List all admins'
-        ],
-        
-        ownerSection: '\n┌─ 👑 OWNER COMMANDS\n│',
-        ownerControl: [
-            '├ 🔧 Bot Control:',
-            '.mode <public/private> - Set bot mode',
-            '.debug - Debug info (reply to msg)',
-            '.audit - System audit log',
-            '.ownerhelp - Owner commands help',
-            '.adminhelp - Admin commands help'
-        ],
-        ownerBroadcast: [
-            '├ 📢 Broadcasting:',
-            `.spam <count> <text> - Spam messages (max ${config.maxSpamCount})`,
-            '.broadcast <msg> - Send to all groups'
-        ],
-        ownerSpecial: [
-            '├ 🔐 Special Features:',
-            '.autovv <on/off> - Auto-save view-once',
-            '.newsletterconfig - Configure newsletter API',
-            '.manage @user <action> - Manage user permissions'
-        ],
-        ownerManagement: [
-            '├ 👥 Owner Management:',
-            '.addowner @user - Grant owner permissions',
-            '.removeowner @user - Revoke owner permissions',
-            '.listowners - List all owners',
-            '.addall - Bulk add members'
-        ],
-        ownerDestructive: [
-            '└ 💀 Destructive:',
-            '.raid confirm - Raid group (DANGEROUS!)',
-            '.roball - Rob everyone in group'
-        ],
-        
-        footer: `\n╔═══════════════════════════╗\n║  Prefix: ${config.prefix}  |  Owner: ${config.ownerName}  ║\n╚═══════════════════════════╝`,
-        
-        tips: '\n💡 Tips:\n   • Reply to messages for: .vv, .sticker, .delete, .debug\n   • Admin commands require group admin permissions\n   • Bot must be admin for: kick, ban, promote, demote, mute\n   • Use "all" to bet all coins: .slot all, .dice all\n   • Weapons are single-use items from .shop',
-        
-        botOwner: `\n📱 Bot Owner: ${config.ownerName} (+${config.ownerNumber})`
+        content: `
+┌─ 🌐 GENERALI (43)
+│ .ping .alive .ai .menu .admin .info .latest .updates .stats .jid .checkowner .sticker .delete .vv .setlang .ad .adit .daily .invite .leaderboard .pay .guide .stopguide .image .games .adminhelp .baida .debugorario .orario .setorario .teacher .test .testforward .testuntis .trading .start .scam .shield .killstats .autocall .botoff
+
+┌─ 💰 ECONOMIA & NEGOZIO (9)
+│ .bank - Saldo | .daily - Monete giornaliere (200-50K)
+│ .pay @user <amt> - Invia monete | .invite - Referral (500/3 amici)
+│ .leaderboard - Classifica | .shop - Negozio virtuale
+│ .shop buy <item> - Acquista | .shop inventory - Inventario
+│ .buybulk <item> <qty> - Acquisto in massa
+
+┌─ 🎮 GIOCHI (28)
+│ .games - Lista | .8ball - Palla magica | .dice [bet] - Dadi
+│ .coinflip <t/c> [bet] - Moneta | .rps <scelta> - Sasso Carta Forbici
+│ .guess - Indovina numero | .trivia - Quiz | .math - Matematica
+│ .tictactoe [@user] - Tris | .chess [@user] - Scacchi
+│ .slot [bet/all] - Slot (96% RTP) | .slotstats - Statistiche slot
+│ .roulette <bet> <tipo> - Roulette | .mines <bet> - Campo minato
+│ .rob @user - Deruba | .fight - Difendi | .double - Doppio o niente
+│ .tournament - Torneo | .achievements - Obiettivi
+
+┌─ 🃏 BLACKJACK (10)
+│ .blackjack <bet> - Inizia | .hit - Pesca | .stand - Fermati
+│ .double - Raddoppia | .split - Dividi | .hand <n> - Cambia mano
+│ .surrender - Arrenditi | .insurance - Assicurazione
+│ .bjstats - Statistiche | .bjleaderboard - Classifica
+
+┌─ 💀 AZIONE (1)
+│ .kill @user <arma> - Uccidi giocatore (stile GTA)
+│   Armi: knife, pistol, rifle, sniper, rpg (compra da .shop)
+
+┌─ 👮 ADMIN (24) - Solo Gruppi
+│ Membri: .add .kick .ban .promote .demote
+│ Moderazione: .warn .warnings .mute .unmute .report
+│ Tag: .tagall .tagadmin .tagnotadmin .hidetag
+│ Impostazioni: .lockdown .antilink .antidelete .welcome
+│ Gruppo: .setgname .setgdesc .resetlink .groupinfo .staff
+│ Altro: .newsletter .delall
+
+┌─ 👑 PROPRIETARIO (20)
+│ Controllo: .mode .debug .audit .ownerhelp .checkbotjid
+│ Broadcast: .spam .broadcast .announce .raid
+│ Funzioni: .autovv .newsletterconfig .manage
+│ Proprietari: .addowner .removeowner .listowners
+│ Economia: .resetbalances .roball
+│ Altro: .addall .autocall .botoff
+
+┌─ 📥 DOWNLOAD (1)
+│ .ytmp3 <url> - Scarica audio YouTube
+
+╔═══════════════════════════╗
+║  Prefisso: ${config.prefix}  |  Proprietario: ${config.ownerName}  ║
+╚═══════════════════════════╝
+
+💡 Suggerimenti:
+• Rispondi ai messaggi: .vv .sticker .delete .debug
+• Comandi admin richiedono permessi admin
+• Bot deve essere admin: kick, ban, promote, demote, mute
+• Usa "all" per scommettere tutto: .slot all .dice all
+• Le armi sono monouso da .shop
+
+📱 Proprietario Bot: ${config.ownerName} (+${config.ownerNumber})`
     }
 };
 
@@ -1294,55 +1270,7 @@ export default {
         const t = responses[lang] || responses.en;
 
         try {
-            let menuText = t.promo + t.title;
-            
-            // General Commands
-            menuText += t.generalSection;
-            t.general.forEach(cmd => menuText += `\n│ ${cmd}`);
-            menuText += '\n└─────────────────────────';
-            
-            // Economy & Shop
-            menuText += t.economySection;
-            t.economy.forEach(cmd => menuText += `\n│ ${cmd}`);
-            menuText += '\n└─────────────────────────';
-            
-            // Games
-            menuText += t.gamesSection;
-            t.games.forEach(cmd => menuText += `\n│ ${cmd}`);
-            menuText += '\n└─────────────────────────';
-            
-            // Blackjack
-            menuText += t.blackjackSection;
-            t.blackjack.forEach(cmd => menuText += `\n│ ${cmd}`);
-            menuText += '\n└─────────────────────────';
-            
-            // Action
-            menuText += t.actionSection;
-            t.action.forEach(cmd => menuText += `\n│ ${cmd}`);
-            menuText += '\n└─────────────────────────';
-            
-            // Admin Commands
-            menuText += t.adminSection;
-            t.adminMember.forEach(cmd => menuText += `\n│ ${cmd}`);
-            t.adminModeration.forEach(cmd => menuText += `\n│ ${cmd}`);
-            t.adminMessaging.forEach(cmd => menuText += `\n│ ${cmd}`);
-            t.adminSettings.forEach(cmd => menuText += `\n│ ${cmd}`);
-            t.adminInfo.forEach(cmd => menuText += `\n│ ${cmd}`);
-            menuText += '\n└─────────────────────────';
-            
-            // Owner Commands
-            menuText += t.ownerSection;
-            t.ownerControl.forEach(cmd => menuText += `\n│ ${cmd}`);
-            t.ownerBroadcast.forEach(cmd => menuText += `\n│ ${cmd}`);
-            t.ownerSpecial.forEach(cmd => menuText += `\n│ ${cmd}`);
-            t.ownerManagement.forEach(cmd => menuText += `\n│ ${cmd}`);
-            t.ownerDestructive.forEach(cmd => menuText += `\n│ ${cmd}`);
-            menuText += '\n└─────────────────────────';
-            
-            // Footer
-            menuText += t.footer;
-            menuText += t.tips;
-            menuText += t.botOwner;
+            const menuText = t.promo + t.title + t.content;
 
             // Send as fake forward from newsletter - this adds the "View Channel" button!
             await sendAsChannelForward(sock, from, menuText, {
