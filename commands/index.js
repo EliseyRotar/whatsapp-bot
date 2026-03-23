@@ -99,6 +99,7 @@ import lockdown from './admin/lockdown.js';
 import antidelete from './admin/antidelete.js';
 import report from './admin/report.js';
 import newsletter from './admin/newsletter.js';
+import jail from './admin/jail.js';
 
 // Owner commands
 import mode from './owner/mode.js';
@@ -290,6 +291,8 @@ export const commands = {
     newsletter,
     postnews: newsletter, // Alias
     newspost: newsletter, // Alias
+    jail,
+    prison: jail, // Alias
     
     // Owner
     mode,
