@@ -81,6 +81,29 @@ const responses = {
 const updates = {
     en: [
         {
+            version: 'v5.2.0 - BLACKJACK REDESIGN',
+            date: 'March 24, 2026',
+            changes: [
+                '🎴 BLACKJACK COMPLETELY REDESIGNED',
+                '✨ Monospace card display (perfect alignment)',
+                '📱 Compact format: A♠ K♥ (easy to read)',
+                '🎯 Minimal UI - only essential info',
+                '📉 Much shorter messages',
+                '',
+                '🔧 SIMPLIFIED GAMEPLAY',
+                '❌ Removed: Multi-hand, side bets, insurance, surrender',
+                '✅ Kept: Hit, stand, double, split (core gameplay)',
+                '⚡ Faster, cleaner experience',
+                '',
+                '📊 BETTER VISUAL LAYOUT',
+                '🎴 Cards perfectly aligned in monospace',
+                '👥 Clear dealer/player separation',
+                '⚡ Instant result display',
+                '',
+                '🎮 Result: Cleaner, faster, more fun!'
+            ]
+        },
+        {
             version: 'v5.1.0 - ULTRA SLOT BUFF',
             date: 'March 24, 2026',
             changes: [
@@ -778,6 +801,29 @@ const updates = {
         }
     ],
     it: [
+        {
+            version: 'v5.2.0 - RIDISEGNO BLACKJACK',
+            date: '24 Marzo 2026',
+            changes: [
+                '🎴 BLACKJACK COMPLETAMENTE RIDISEGNATO',
+                '✨ Display carte monospace (allineamento perfetto)',
+                '📱 Formato compatto: A♠ K♥ (facile da leggere)',
+                '🎯 UI minimale - solo info essenziali',
+                '📉 Messaggi molto più corti',
+                '',
+                '🔧 GAMEPLAY SEMPLIFICATO',
+                '❌ Rimosso: Multi-mano, scommesse laterali, assicurazione, resa',
+                '✅ Mantenuto: Hit, stand, double, split (gameplay base)',
+                '⚡ Esperienza più veloce e pulita',
+                '',
+                '📊 LAYOUT VISIVO MIGLIORE',
+                '🎴 Carte perfettamente allineate in monospace',
+                '👥 Separazione chiara dealer/giocatore',
+                '⚡ Display risultato istantaneo',
+                '',
+                '🎮 Risultato: Più pulito, veloce e divertente!'
+            ]
+        },
         {
             version: 'v5.1.0 - ULTRA POTENZIAMENTO SLOT',
             date: '24 Marzo 2026',
