@@ -81,6 +81,27 @@ const responses = {
 const updates = {
     en: [
         {
+            version: 'v5.1.0 - ULTRA SLOT BUFF',
+            date: 'March 24, 2026',
+            changes: [
+                '🎰 SLOT MACHINE ULTRA BUFFED',
+                '🚀 RTP: 97% → 98% (top 2% industry)',
+                '⚡ Cooldown: 1.5s → 1s (ultra fast)',
+                '💎 Jackpot: 100x → 150x (+50%)',
+                '7️⃣ Sevens: 40x → 60x (+50%)',
+                '🔔 Bells: 15x → 20x (+33%)',
+                '🍇 Grapes: 12x → 15x (+25%)',
+                '🍊 Oranges: 8x → 10x (+25%)',
+                '🍋 Lemons: 5x → 6x (+20%)',
+                '🍒 Cherries: 3x → 4x (+33%)',
+                '💫 Two match: 2x → 2.5x (+25%)',
+                '🎁 Free spins: 7 → 10 spins (+43%)',
+                '📈 Premium symbols more frequent',
+                '',
+                '🎯 Result: Even more fun & bigger rewards!'
+            ]
+        },
+        {
             version: 'v5.0.0 - MAJOR UPDATE',
             date: 'March 22, 2026',
             changes: [
@@ -757,6 +778,58 @@ const updates = {
         }
     ],
     it: [
+        {
+            version: 'v5.1.0 - ULTRA POTENZIAMENTO SLOT',
+            date: '24 Marzo 2026',
+            changes: [
+                '🎰 SLOT MACHINE ULTRA POTENZIATA',
+                '🚀 RTP: 97% → 98% (top 2% industria)',
+                '⚡ Cooldown: 1.5s → 1s (ultra veloce)',
+                '💎 Jackpot: 100x → 150x (+50%)',
+                '7️⃣ Sette: 40x → 60x (+50%)',
+                '🔔 Campane: 15x → 20x (+33%)',
+                '🍇 Uva: 12x → 15x (+25%)',
+                '🍊 Arance: 8x → 10x (+25%)',
+                '🍋 Limoni: 5x → 6x (+20%)',
+                '🍒 Ciliegie: 3x → 4x (+33%)',
+                '💫 Due: 2x → 2.5x (+25%)',
+                '🎁 Giri gratis: 7 → 10 giri (+43%)',
+                '📈 Simboli premium più frequenti',
+                '',
+                '🎯 Risultato: Ancora più divertimento e ricompense!'
+            ]
+        },
+        {
+            version: 'v5.0.0 - AGGIORNAMENTO MAGGIORE',
+            date: '22 Marzo 2026',
+            changes: [
+                '🎰 SLOT MACHINE RIBILANCIATA',
+                '🔧 Correzioni Sicurezza:',
+                '• Risolto exploit critico',
+                '• Prevenzione giochi concorrenti',
+                '• Sistema jackpot thread-safe',
+                '',
+                '💰 Ricompense Migliori (96% RTP):',
+                '• Jackpot: 20x → 50x (+150%)',
+                '• Sette: 10x → 25x (+150%)',
+                '• Tutti i moltiplicatori aumentati',
+                '• Cooldown: 3s → 2s (gioco più veloce)',
+                '',
+                '🎡 RICOMPENSE GIORNALIERE POTENZIATE (4x-5x)',
+                '',
+                '💎 Nuovi Livelli:',
+                '• Comune: 200 monete (era 50)',
+                '• Raro: 1.000 monete (era 200)',
+                '• Epico: 2.500 monete (era 500)',
+                '• Leggendario: 5.000 monete (era 1.000)',
+                '• MEGA JACKPOT: 50.000 monete (era 10.000)',
+                '',
+                '📊 Media Giornaliera: ~2.160 monete (era ~540)',
+                '📅 Valore Mensile: ~65.000 monete!',
+                '',
+                '🎯 Perché? Più divertimento, miglior bilanciamento!'
+            ]
+        },
         {
             version: 'v4.8.0',
             date: '19 Marzo 2026',
