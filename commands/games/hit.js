@@ -1,71 +1,32 @@
 import { getGroupLanguage } from '../../utils/language.js';
 import { getBalance, addCoins } from '../../utils/bank_SAFE.js';
+import { activeGames } from '../../utils/blackjackGames.js';
+import { displayGame, calculateHandValue, canSplit } from './blackjack.js';
 
-// Import activeGames from blackjack.js
-import blackjackModule from './blackjack.js';
-const activeGames = new Map();
-
-function calculateHandValue(hand) {
-    let total = 0;
-    let aces = 0;
-    
-    for (const card of hand) {
-        if (card.rank === 'A') {
-            aces++;
-            total += 11;
-        } else if (['J', 'Q', 'K'].includes(card.rank)) {
-            total += 10;
-        } else {
-            total += parseInt(card.rank);
-        }
+const responses = {
+    en: {
+        noGame: '❌ No active game!\nStart: `.bj <bet>`',
+        bust: '💥 BUST!',
+        win: '🎊 YOU WIN',
+        lose: '😢 YOU LOSE',
+        push: '🤝 PUSH',
+        won: 'Won:',
+        lost: 'Lost:',
+        balance: 'Balance:',
+        bet: 'Bet:'
+    },
+    it: {
+        noGame: '❌ Nessun gioco attivo!\nInizia: `.bj <puntata>`',
+        bust: '💥 SBALLATO!',
+        win: '🎊 HAI VINTO',
+        lose: '😢 HAI PERSO',
+        push: '🤝 PAREGGIO',
+        won: 'Vinto:',
+        lost: 'Perso:',
+        balance: 'Saldo:',
+        bet: 'Puntata:'
     }
-    
-    while (total > 21 && aces > 0) {
-        total -= 10;
-        aces--;
-    }
-    
-    return total;
-}
-
-function formatCard(card) {
-    return `${card.rank}${card.suit}`;
-}
-
-function formatHand(cards) {
-    return cards.map(formatCard).join(' ');
-}
-
-function displayGame(game, t, hideDealer = true) {
-    const { playerHand, dealerHand, bet, pushName } = game;
-    const playerTotal = calculateHandValue(playerHand);
-    const dealerTotal = hideDealer ? calculateHandValue([dealerHand[0]]) : calculateHandValue(dealerHand);
-    
-    let text = '```\n';
-    text += '━━━━━━━━━━━━━━━━━━━━━\n';
-    text += '    🎰 BLACKJACK 🎰\n';
-    text += '━━━━━━━━━━━━━━━━━━━━━\n\n';
-    
-    // Dealer
-    text += '🎩 DEALER';
-    if (hideDealer) {
-        text += ` [${calculateHandValue([dealerHand[0]])}]\n`;
-        text += `   ${formatCard(dealerHand[0])} 🎴\n\n`;
-    } else {
-        text += ` [${dealerTotal}]\n`;
-        text += `   ${formatHand(dealerHand)}\n\n`;
-    }
-    
-    // Player
-    text += `👤 ${pushName} [${playerTotal}]\n`;
-    text += `   ${formatHand(playerHand)}\n\n`;
-    
-    text += '━━━━━━━━━━━━━━━━━━━━━\n';
-    text += `💰 ${t.bet} ${bet}\n`;
-    text += '```';
-    
-    return text;
-}
+};
 
 async function endGame(sock, game, result, t) {
     const { groupJid, sender, bet, pushName } = game;
@@ -95,39 +56,13 @@ async function endGame(sock, game, result, t) {
     activeGames.delete(sender);
 }
 
-const responses = {
-    en: {
-        noGame: '❌ No active game!\nStart: `.bj <bet>`',
-        bust: '💥 BUST!',
-        win: '🎊 YOU WIN',
-        lose: '😢 YOU LOSE',
-        push: '🤝 PUSH',
-        won: 'Won:',
-        lost: 'Lost:',
-        balance: 'Balance:',
-        bet: 'Bet:'
-    },
-    it: {
-        noGame: '❌ Nessun gioco attivo!\nInizia: `.bj <puntata>`',
-        bust: '💥 SBALLATO!',
-        win: '🎊 HAI VINTO',
-        lose: '😢 HAI PERSO',
-        push: '🤝 PAREGGIO',
-        won: 'Vinto:',
-        lost: 'Perso:',
-        balance: 'Saldo:',
-        bet: 'Puntata:'
-    }
-};
-
 export default {
     name: 'hit',
     execute: async (sock, msg, args) => {
         const from = msg.key.remoteJid;
         const sender = msg.key.participant || msg.key.remoteJid;
         
-        // Get game from blackjack module's activeGames
-        const game = blackjackModule.activeGames?.get(sender);
+        const game = activeGames.get(sender);
         
         if (!game) {
             const lang = getGroupLanguage(from);
@@ -149,7 +84,6 @@ export default {
             await endGame(sock, game, 'lose', t);
         } else if (playerTotal === 21) {
             // Auto-stand on 21
-            // Dealer plays
             while (calculateHandValue(game.dealerHand) < 17) {
                 game.dealerHand.push(game.deck.pop());
             }
@@ -165,7 +99,11 @@ export default {
             }
         } else {
             // Continue playing
-            const gameText = displayGame(game, t, true) + '\n\n*Actions:*\n• `.hit` - Draw\n• `.stand` - Hold\n• `.double` - 2x bet';
+            let gameText = displayGame(game, t, true);
+            gameText += '\n\n*Actions:*\n• `.hit` - Draw\n• `.stand` - Hold\n• `.double` - 2x bet';
+            if (canSplit(game.playerHand)) {
+                gameText += '\n• `.split` - Split pair';
+            }
             await sock.sendMessage(from, { text: gameText });
         }
     }
