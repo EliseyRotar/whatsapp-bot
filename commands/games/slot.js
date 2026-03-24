@@ -7,7 +7,7 @@ import { getJackpotAmount, contributeToJackpot, winJackpot } from '../../utils/g
 
 // Cooldown system
 const userCooldowns = new Map();
-const COOLDOWN_MS = 2000; // 2 seconds - balanced for gameplay
+const COOLDOWN_MS = 1000; // 1 second - ultra fast gameplay for maximum engagement
 
 // Win streak tracking (anti-abuse)
 const winStreaks = new Map();
@@ -36,7 +36,7 @@ const responses = {
         jackpot: '💎💎💎 JACKPOT! PROGRESSIVE WIN! 💎💎💎',
         megaWin: '🎉 MEGA WIN! TRIPLE SEVENS! 🎉',
         bigWin: '🔥 BIG WIN! TRIPLE BELLS! 🔥',
-        freeSpinsTrigger: '🔔🔔🔔 FREE SPINS! 5 FREE GAMES! 🔔🔔🔔',
+        freeSpinsTrigger: '🔔🔔🔔 FREE SPINS! 10 FREE GAMES! 🔔🔔🔔',
         greatWin: '⭐ GREAT WIN! TRIPLE GRAPES! ⭐',
         goodWin: '✨ GOOD WIN! TRIPLE ORANGES! ✨',
         niceWin: '🌟 NICE WIN! TRIPLE LEMONS! 🌟',
@@ -58,7 +58,7 @@ const responses = {
         invalidBet: '❌ Invalid bet amount!\n\n📊 Limits:\n• Minimum: 1 coin\n• Maximum: 1,000,000,000 coins',
         playForFun: '🎮 Playing for fun',
         playTip: '💡 Use .slot <bet> to play with coins!',
-        payouts: '\n\n┌──────────────────────┐\n│      💎 PAYOUTS      │\n├──────────────────────┤\n│ 💎💎💎  JACKPOT + 50x  │\n│ 7️⃣7️⃣7️⃣       25x      │\n│ 🔔🔔🔔  FREE SPINS+10x │\n│ 🍇🍇🍇        8x      │\n│ 🍊🍊🍊        5x      │\n│ 🍋🍋🍋        3x      │\n│ 🍒🍒🍒        2x      │\n│ Any 2       1.5x     │\n└──────────────────────┘',
+        payouts: '\n\n┌──────────────────────┐\n│      💎 PAYOUTS      │\n├──────────────────────┤\n│ 💎💎💎  JACKPOT+150x  │\n│ 7️⃣7️⃣7️⃣       60x      │\n│ 🔔🔔🔔  10 SPINS+20x  │\n│ 🍇🍇🍇       15x      │\n│ 🍊🍊🍊       10x      │\n│ 🍋🍋🍋        6x      │\n│ 🍒🍒🍒        4x      │\n│ Any 2       2.5x     │\n└──────────────────────┘',
         statsHint: 'Use .slotstats to see your stats!'
     },
     it: {
@@ -66,7 +66,7 @@ const responses = {
         jackpot: '💎💎💎 JACKPOT! VINCITA PROGRESSIVA! 💎💎💎',
         megaWin: '🎉 MEGA VINCITA! TRIPLO SETTE! 🎉',
         bigWin: '🔥 GRANDE VINCITA! TRIPLO CAMPANE! 🔥',
-        freeSpinsTrigger: '🔔🔔🔔 GIRI GRATIS! 5 GIRI GRATIS! 🔔🔔🔔',
+        freeSpinsTrigger: '🔔🔔🔔 GIRI GRATIS! 10 GIRI GRATIS! 🔔🔔🔔',
         greatWin: '⭐ OTTIMA VINCITA! TRIPLO UVA! ⭐',
         goodWin: '✨ BUONA VINCITA! TRIPLO ARANCE! ✨',
         niceWin: '🌟 BELLA VINCITA! TRIPLO LIMONI! 🌟',
@@ -88,7 +88,7 @@ const responses = {
         invalidBet: '❌ Importo puntata non valido!\n\n📊 Limiti:\n• Minimo: 1 moneta\n• Massimo: 1.000.000.000 monete',
         playForFun: '🎮 Giocando per divertimento',
         playTip: '💡 Usa .slot <puntata> per giocare con monete!',
-        payouts: '\n\n💎 PAGAMENTI:\n💎💎💎 = JACKPOT + 50x\n7️⃣7️⃣7️⃣ = 25x\n🔔🔔🔔 = 5 GIRI GRATIS + 10x\n🍇🍇🍇 = 8x\n🍊🍊🍊 = 5x\n🍋🍋🍋 = 3x\n🍒🍒🍒 = 2x\nDue = 1.5x',
+        payouts: '\n\n💎 PAGAMENTI:\n💎💎💎 = JACKPOT + 150x\n7️⃣7️⃣7️⃣ = 60x\n🔔🔔🔔 = 10 GIRI GRATIS + 20x\n🍇🍇🍇 = 15x\n🍊🍊🍊 = 10x\n🍋🍋🍋 = 6x\n🍒🍒🍒 = 4x\nDue = 2.5x',
         statsHint: 'Usa .slotstats per vedere le tue statistiche!'
     },
     ru: {
@@ -97,7 +97,7 @@ const responses = {
         jackpot: '💎💎💎 ДЖЕКПОТ! ПРОГРЕССИВНЫЙ ВЫИГРЫШ! 💎💎💎',
         megaWin: '🎉 МЕГА ВЫИГРЫШ! ТРОЙНЫЕ СЕМЁРКИ! 🎉',
         bigWin: '🔥 БОЛЬШОЙ ВЫИГРЫШ! ТРОЙНЫЕ КОЛОКОЛА! 🔥',
-        freeSpinsTrigger: '🔔🔔🔔 БЕСПЛАТНЫЕ ВРАЩЕНИЯ! 5 БЕСПЛАТНЫХ ИГР! 🔔🔔🔔',
+        freeSpinsTrigger: '🔔🔔🔔 БЕСПЛАТНЫЕ ВРАЩЕНИЯ! 10 БЕСПЛАТНЫХ ИГР! 🔔🔔🔔',
         greatWin: '⭐ ОТЛИЧНЫЙ ВЫИГРЫШ! ТРОЙНОЙ ВИНОГРАД! ⭐',
         goodWin: '✨ ХОРОШИЙ ВЫИГРЫШ! ТРОЙНЫЕ АПЕЛЬСИНЫ! ✨',
         niceWin: '🌟 ПРИЯТНЫЙ ВЫИГРЫШ! ТРОЙНЫЕ ЛИМОНЫ! 🌟',
@@ -119,7 +119,7 @@ const responses = {
         invalidBet: '❌ Неверная сумма ставки!\n\n📊 Лимиты:\n• Минимум: 1 монета\n• Максимум: 1.000.000.000 монет',
         playForFun: '🎮 Играем для удовольствия',
         playTip: '💡 Используйте .slot <ставка> для игры с монетами!',
-        payouts: '\n\n💎 ВЫПЛАТЫ:\n💎💎💎 = ДЖЕКПОТ + 50x\n7️⃣7️⃣7️⃣ = 25x\n🔔🔔🔔 = 5 БЕСПЛАТНЫХ ВРАЩЕНИЙ + 10x\n🍇🍇🍇 = 8x\n🍊🍊🍊 = 5x\n🍋🍋🍋 = 3x\n🍒🍒🍒 = 2x\nДва = 1.5x',
+        payouts: '\n\n💎 ВЫПЛАТЫ:\n💎💎💎 = ДЖЕКПОТ + 150x\n7️⃣7️⃣7️⃣ = 60x\n🔔🔔🔔 = 10 БЕСПЛАТНЫХ ВРАЩЕНИЙ + 20x\n🍇🍇🍇 = 15x\n🍊🍊🍊 = 10x\n🍋🍋🍋 = 6x\n🍒🍒🍒 = 4x\nДва = 2.5x',
         statsHint: 'Используйте .slotstats чтобы увидеть вашу статистику!'
     },
     es: {
@@ -128,7 +128,7 @@ const responses = {
         jackpot: '💎💎💎 ¡JACKPOT! ¡PREMIO PROGRESIVO! 💎💎💎',
         megaWin: '🎉 ¡MEGA PREMIO! ¡TRIPLE SIETES! 🎉',
         bigWin: '🔥 ¡GRAN PREMIO! ¡TRIPLE CAMPANAS! 🔥',
-        freeSpinsTrigger: '🔔🔔🔔 ¡GIROS GRATIS! ¡5 JUEGOS GRATIS! 🔔🔔🔔',
+        freeSpinsTrigger: '🔔🔔🔔 ¡GIROS GRATIS! ¡10 JUEGOS GRATIS! 🔔🔔🔔',
         greatWin: '⭐ ¡EXCELENTE PREMIO! ¡TRIPLE UVAS! ⭐',
         goodWin: '✨ ¡BUEN PREMIO! ¡TRIPLE NARANJAS! ✨',
         niceWin: '🌟 ¡LINDO PREMIO! ¡TRIPLE LIMONES! 🌟',
@@ -150,7 +150,7 @@ const responses = {
         invalidBet: '❌ ¡Cantidad de apuesta inválida!\n\n📊 Límites:\n• Mínimo: 1 moneda\n• Máximo: 1.000.000.000 monedas',
         playForFun: '🎮 Jugando por diversión',
         playTip: '💡 ¡Usa .slot <apuesta> para jugar con monedas!',
-        payouts: '\n\n💎 PAGOS:\n💎💎💎 = JACKPOT + 50x\n7️⃣7️⃣7️⃣ = 25x\n🔔🔔🔔 = 5 GIROS GRATIS + 10x\n🍇🍇🍇 = 8x\n🍊🍊🍊 = 5x\n🍋🍋🍋 = 3x\n🍒🍒🍒 = 2x\nDos = 1.5x',
+        payouts: '\n\n💎 PAGOS:\n💎💎💎 = JACKPOT + 150x\n7️⃣7️⃣7️⃣ = 60x\n🔔🔔🔔 = 10 GIROS GRATIS + 20x\n🍇🍇🍇 = 15x\n🍊🍊🍊 = 10x\n🍋🍋🍋 = 6x\n🍒🍒🍒 = 4x\nDos = 2.5x',
         statsHint: '¡Usa .slotstats para ver tus estadísticas!'
     },
     pt: {
@@ -159,7 +159,7 @@ const responses = {
         jackpot: '💎💎💎 JACKPOT! PRÊMIO PROGRESSIVO! 💎💎💎',
         megaWin: '🎉 MEGA VITÓRIA! TRIPLO SETES! 🎉',
         bigWin: '🔥 GRANDE VITÓRIA! TRIPLO SINOS! 🔥',
-        freeSpinsTrigger: '🔔🔔🔔 GIROS GRÁTIS! 5 JOGOS GRÁTIS! 🔔🔔🔔',
+        freeSpinsTrigger: '🔔🔔🔔 GIROS GRÁTIS! 10 JOGOS GRÁTIS! 🔔🔔🔔',
         greatWin: '⭐ ÓTIMA VITÓRIA! TRIPLO UVAS! ⭐',
         goodWin: '✨ BOA VITÓRIA! TRIPLO LARANJAS! ✨',
         niceWin: '🌟 BELA VITÓRIA! TRIPLO LIMÕES! 🌟',
@@ -181,7 +181,7 @@ const responses = {
         invalidBet: '❌ Valor de aposta inválido!\n\n📊 Limites:\n• Mínimo: 1 moeda\n• Máximo: 1.000.000.000 moedas',
         playForFun: '🎮 Jogando por diversão',
         playTip: '💡 Use .slot <aposta> para jogar com moedas!',
-        payouts: '\n\n💎 PAGAMENTOS:\n💎💎💎 = JACKPOT + 50x\n7️⃣7️⃣7️⃣ = 25x\n🔔🔔🔔 = 5 GIROS GRÁTIS + 10x\n🍇🍇🍇 = 8x\n🍊🍊🍊 = 5x\n🍋🍋🍋 = 3x\n🍒🍒🍒 = 2x\nDois = 1.5x',
+        payouts: '\n\n💎 PAGAMENTOS:\n💎💎💎 = JACKPOT + 150x\n7️⃣7️⃣7️⃣ = 60x\n🔔🔔🔔 = 10 GIROS GRÁTIS + 20x\n🍇🍇🍇 = 15x\n🍊🍊🍊 = 10x\n🍋🍋🍋 = 6x\n🍒🍒🍒 = 4x\nDois = 2.5x',
         statsHint: 'Use .slotstats para ver suas estatísticas!'
     },
     ar: {
@@ -190,7 +190,7 @@ const responses = {
         jackpot: '💎💎💎 جاكبوت! فوز تقدمي! 💎💎💎',
         megaWin: '🎉 فوز ضخم! ثلاثة سبعات! 🎉',
         bigWin: '🔥 فوز كبير! ثلاثة أجراس! 🔥',
-        freeSpinsTrigger: '🔔🔔🔔 دورات مجانية! 5 ألعاب مجانية! 🔔🔔🔔',
+        freeSpinsTrigger: '🔔🔔🔔 دورات مجانية! 10 ألعاب مجانية! 🔔🔔🔔',
         greatWin: '⭐ فوز رائع! ثلاثة عنب! ⭐',
         goodWin: '✨ فوز جيد! ثلاثة برتقال! ✨',
         niceWin: '🌟 فوز لطيف! ثلاثة ليمون! 🌟',
@@ -212,7 +212,7 @@ const responses = {
         invalidBet: '❌ مبلغ رهان غير صالح!\n\n📊 الحدود:\n• الحد الأدنى: 1 عملة\n• الحد الأقصى: 1.000.000.000 عملة',
         playForFun: '🎮 اللعب للمتعة',
         playTip: '💡 استخدم .slot <رهان> للعب بالعملات!',
-        payouts: '\n\n💎 المدفوعات:\n💎💎💎 = جاكبوت + 50x\n7️⃣7️⃣7️⃣ = 25x\n🔔🔔🔔 = 5 دورات مجانية + 10x\n🍇🍇🍇 = 8x\n🍊🍊🍊 = 5x\n🍋🍋🍋 = 3x\n🍒🍒🍒 = 2x\nاثنان = 1.5x',
+        payouts: '\n\n💎 المدفوعات:\n💎💎💎 = جاكبوت + 150x\n7️⃣7️⃣7️⃣ = 60x\n🔔🔔🔔 = 10 دورات مجانية + 20x\n🍇🍇🍇 = 15x\n🍊🍊🍊 = 10x\n🍋🍋🍋 = 6x\n🍒🍒🍒 = 4x\nاثنان = 2.5x',
         statsHint: 'استخدم .slotstats لرؤية إحصائياتك!'
     },
     hi: {
@@ -221,7 +221,7 @@ const responses = {
         jackpot: '💎💎💎 जैकपॉट! प्रगतिशील जीत! 💎💎💎',
         megaWin: '🎉 मेगा जीत! तीन सेवन! 🎉',
         bigWin: '🔥 बड़ी जीत! तीन घंटियां! 🔥',
-        freeSpinsTrigger: '🔔🔔🔔 मुफ्त स्पिन! 5 मुफ्त गेम! 🔔🔔🔔',
+        freeSpinsTrigger: '🔔🔔🔔 मुफ्त स्पिन! 10 मुफ्त गेम! 🔔🔔🔔',
         greatWin: '⭐ शानदार जीत! तीन अंगूर! ⭐',
         goodWin: '✨ अच्छी जीत! तीन संतरे! ✨',
         niceWin: '🌟 बढ़िया जीत! तीन नींबू! 🌟',
@@ -243,7 +243,7 @@ const responses = {
         invalidBet: '❌ अमान्य बेट राशि!\n\n📊 सीमाएं:\n• न्यूनतम: 1 कॉइन\n• अधिकतम: 1,000,000,000 कॉइन',
         playForFun: '🎮 मज़े के लिए खेल रहे हैं',
         playTip: '💡 कॉइन के साथ खेलने के लिए .slot <बेट> का उपयोग करें!',
-        payouts: '\n\n💎 पेआउट:\n💎💎💎 = जैकपॉट + 50x\n7️⃣7️⃣7️⃣ = 25x\n🔔🔔🔔 = 5 मुफ्त स्पिन + 10x\n🍇🍇🍇 = 8x\n🍊🍊🍊 = 5x\n🍋🍋🍋 = 3x\n🍒🍒🍒 = 2x\nदो = 1.5x',
+        payouts: '\n\n💎 पेआउट:\n💎💎💎 = जैकपॉट + 150x\n7️⃣7️⃣7️⃣ = 60x\n🔔🔔🔔 = 10 मुफ्त स्पिन + 20x\n🍇🍇🍇 = 15x\n🍊🍊🍊 = 10x\n🍋🍋🍋 = 6x\n🍒🍒🍒 = 4x\nदो = 2.5x',
         statsHint: 'अपने आंकड़े देखने के लिए .slotstats उपयोग करें!'
     },
     ng: {
@@ -252,7 +252,7 @@ const responses = {
         jackpot: '💎💎💎 JACKPOT! PROGRESSIVE WIN! 💎💎💎',
         megaWin: '🎉 MEGA WIN! TRIPLE SEVENS! 🎉',
         bigWin: '🔥 BIG WIN! TRIPLE BELLS! 🔥',
-        freeSpinsTrigger: '🔔🔔🔔 FREE SPINS! 5 FREE GAMES! 🔔🔔🔔',
+        freeSpinsTrigger: '🔔🔔🔔 FREE SPINS! 10 FREE GAMES! 🔔🔔🔔',
         greatWin: '⭐ GREAT WIN! TRIPLE GRAPES! ⭐',
         goodWin: '✨ GOOD WIN! TRIPLE ORANGES! ✨',
         niceWin: '🌟 NICE WIN! TRIPLE LEMONS! 🌟',
@@ -274,7 +274,7 @@ const responses = {
         invalidBet: '❌ Dat bet amount no correct!\n\n📊 Limits:\n• Minimum: 1 coin\n• Maximum: 1,000,000,000 coins',
         playForFun: '🎮 Playing for fun',
         playTip: '💡 Use .slot <bet> make you play with coins!',
-        payouts: '\n\n💎 PAYOUTS:\n💎💎💎 = JACKPOT + 50x\n7️⃣7️⃣7️⃣ = 25x\n🔔🔔🔔 = 5 FREE SPINS + 10x\n🍇🍇🍇 = 8x\n🍊🍊🍊 = 5x\n🍋🍋🍋 = 3x\n🍒🍒🍒 = 2x\nAny 2 = 1.5x',
+        payouts: '\n\n💎 PAYOUTS:\n💎💎💎 = JACKPOT + 150x\n7️⃣7️⃣7️⃣ = 60x\n🔔🔔🔔 = 10 FREE SPINS + 20x\n🍇🍇🍇 = 15x\n🍊🍊🍊 = 10x\n🍋🍋🍋 = 6x\n🍒🍒🍒 = 4x\nAny 2 = 2.5x',
         statsHint: 'Use .slotstats make you see your stats!'
     }
 };
@@ -287,15 +287,15 @@ function getWeightedSymbol(luckBoost = 0) {
     // Luck boost increases high-value symbol chances (capped at 50% for better gameplay)
     const boost = Math.min(luckBoost, 50);
     
-    // Rebalanced distribution for 96% RTP (4% house edge) - more player-friendly
-    // Increased chances for better symbols
-    const diamondChance = 1.5 + (boost * 0.04);   // 1.5-3.5% (jackpot is rare but possible)
-    const sevenChance = diamondChance + 3 + (boost * 0.06);  // 3-6%
-    const bellChance = sevenChance + 6 + (boost * 0.1);    // 6-11%
-    const grapeChance = bellChance + 10;  // 10%
-    const orangeChance = grapeChance + 14; // 14%
+    // ULTRA BUFFED distribution for 98% RTP (2% house edge) - extremely generous!
+    // Significantly increased chances for premium symbols
+    const diamondChance = 2.5 + (boost * 0.06);   // 2.5-5.5% (jackpot highly accessible)
+    const sevenChance = diamondChance + 5 + (boost * 0.10);  // 5-10%
+    const bellChance = sevenChance + 10 + (boost * 0.15);    // 10-17.5%
+    const grapeChance = bellChance + 14;  // 14%
+    const orangeChance = grapeChance + 18; // 18%
     const lemonChance = orangeChance + 22; // 22%
-    // Cherry fills the rest: ~33-43%
+    // Cherry fills the rest: ~8.5-18.5% (heavily reduced for more premium hits)
     
     if (rand < diamondChance) return '💎';
     if (rand < sevenChance) return '7️⃣';
@@ -316,7 +316,7 @@ function generateReels(luckBoost = 0) {
 }
 
 
-// Calculate spin result with improved multipliers (96% RTP target)
+// Calculate spin result with ULTRA BUFFED multipliers (98% RTP target)
 function calculateResult(reels, t) {
     const [s1, s2, s3] = reels.middle;
     
@@ -326,32 +326,32 @@ function calculateResult(reels, t) {
         isWin = true;
         if (s1 === '💎') {
             result = t.jackpot;
-            multiplier = 50; // Increased from 20x - jackpot should be exciting!
+            multiplier = 150; // ULTRA BUFFED from 100x - insane jackpot!
             isJackpot = true;
         } else if (s1 === '7️⃣') {
             result = t.megaWin;
-            multiplier = 25; // Increased from 10x
+            multiplier = 60; // ULTRA BUFFED from 40x
         } else if (s1 === '🔔') {
             result = t.freeSpinsTrigger;
-            multiplier = 10; // Increased from 5x
+            multiplier = 20; // ULTRA BUFFED from 15x
             isFreeSpins = true;
         } else if (s1 === '🍇') {
             result = t.greatWin;
-            multiplier = 8; // Increased from 4x
+            multiplier = 15; // ULTRA BUFFED from 12x
         } else if (s1 === '🍊') {
             result = t.goodWin;
-            multiplier = 5; // Increased from 3x
+            multiplier = 10; // ULTRA BUFFED from 8x
         } else if (s1 === '🍋') {
             result = t.niceWin;
-            multiplier = 3; // Increased from 2x
+            multiplier = 6; // ULTRA BUFFED from 5x
         } else if (s1 === '🍒') {
             result = t.smallWin;
-            multiplier = 2; // Increased from 1.5x
+            multiplier = 4; // ULTRA BUFFED from 3x
         }
     } else if (s1 === s2 || s2 === s3 || s1 === s3) {
         isWin = true;
         result = t.tinyWin;
-        multiplier = 1.5; // Increased from 1.2x - at least break even after house edge
+        multiplier = 2.5; // ULTRA BUFFED from 2x - even better profit on two match!
     } else {
         const isNearMiss = (s1 === s2 || s2 === s3 || s1 === s3);
         result = isNearMiss ? t.nearMiss : t.noMatch;
@@ -361,13 +361,13 @@ function calculateResult(reels, t) {
     return { result, multiplier, isWin, isFreeSpins, isJackpot };
 }
 
-// Play free spins with reduced house edge (more generous)
+// Play free spins with ULTRA BUFFED rewards (98% RTP)
 async function playFreeSpins(sender, bet, luckBoost, coinMultiplier, t) {
     const freeSpinResults = [];
     let totalFreeWins = 0;
-    const houseEdge = 0.96; // 4% house edge (reduced from 8%)
+    const houseEdge = 0.98; // 2% house edge (ULTRA BUFFED from 3%)
     
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 10; i++) { // ULTRA BUFFED from 7 to 10 free spins!
         const reels = generateReels(luckBoost);
         const spinResult = calculateResult(reels, t);
         
@@ -559,8 +559,8 @@ export default {
                 
                 // Apply shop multipliers FIRST, then house edge
                 const boostedWin = Math.floor(baseWin * coinMultiplier);
-                // Apply 4% house edge (96% RTP) - more player-friendly
-                const houseEdge = 0.96;
+                // Apply 2% house edge (98% RTP) - ULTRA BUFFED and extremely generous!
+                const houseEdge = 0.98;
                 let fairWin = Math.floor(boostedWin * houseEdge);
                 
                 // Handle jackpot
